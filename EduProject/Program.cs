@@ -7,7 +7,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
-
+builder.Services.AddAutoMapper(typeof(Program));
 var app = builder.Build();
 app.MapControllerRoute(
             name: "areas",
