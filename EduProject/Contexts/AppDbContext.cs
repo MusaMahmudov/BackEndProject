@@ -13,7 +13,13 @@ namespace EduProject.Contexts
         public DbSet<Teacher> Teachers { get; set; } = null!;
         public DbSet<Skill> Skills { get; set; } = null!;
         public DbSet<TeacherSkill> TeacherSkill { get; set; } = null!;
-		public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        public DbSet<Event> Events { get; set; } = null!;
+        public DbSet<EventSpeaker> EventSpeaker { get; set; } = null!;
+
+        public DbSet<Speaker> Speakers { get; set; } = null!;
+
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
 		{
             var entries = ChangeTracker.Entries<BaseSectionEntity>();
             foreach (var entry in entries)

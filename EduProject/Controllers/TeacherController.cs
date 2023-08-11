@@ -22,10 +22,19 @@ namespace EduProject.Controllers
             List<TeacherViewModel> teacherViewModel = _mapper.Map<List<TeacherViewModel>>(Teachers);
             return View(teacherViewModel);
         }
-        public IActionResult Details()
+        public async Task<IActionResult> Details(int Id)
         {
-            return View();
+            var teacher =  _context.Teachers.Include(t=>t.TeacherSkill).ThenInclude(t=>t.Skill).Select(t=>t.Id == Id);
+            if (teacher is null)
+            {
+                return NotFound();
+            }
+            var detailTeacherViewModel = _mapper.Map<DetailTeacherViewModel>(teacher);
+
+
+
+
+            return View(detailTeacherViewModel);
         }
     }
-   
 }

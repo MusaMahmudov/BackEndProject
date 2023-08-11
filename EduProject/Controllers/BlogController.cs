@@ -12,5 +12,13 @@ namespace EduProject.Controllers
         {
             return View();
         }
+        public IActionResult LeftSidebar()
+        {
+            return View();
+        }
+        public IActionResult RightSidebar()
+        {
+            return View();
+        }
     }
 }

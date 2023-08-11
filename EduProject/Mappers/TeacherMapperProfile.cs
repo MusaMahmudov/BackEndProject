@@ -9,6 +9,12 @@ namespace EduProject.Mappers
 	public TeacherMapperProfile() 
 		{
 			CreateMap<Teacher, TeacherViewModel>().ReverseMap();
+			CreateMap<Teacher,	DetailTeacherViewModel>()
+				.ForMember(tvc => tvc.SkillNames,x=> x.MapFrom(t=> t.TeacherSkill.Select(tp=>tp.Skill.Name)))
+				.ReverseMap();
+
+			
+				
 		
 		}
 
