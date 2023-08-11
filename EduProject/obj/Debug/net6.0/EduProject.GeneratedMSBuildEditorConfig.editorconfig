@@ -9,53 +9,89 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = EduProject
 build_property.RootNamespace = EduProject
-build_property.ProjectDir = C:\Users\musafm\source\repos\EduProject\EduProject\
+build_property.ProjectDir = C:\Users\binch\OneDrive\Рабочий стол\BackEndProject\EduProject\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\musafm\source\repos\EduProject\EduProject
+build_property.MSBuildProjectDirectory = C:\Users\binch\OneDrive\Рабочий стол\BackEndProject\EduProject
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/musafm/source/repos/EduProject/EduProject/Views/Account/Index.cshtml]
+[C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Areas/Admin/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Areas/Admin/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Areas/Admin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Areas/Admin/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Views/About/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Views/Account/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/musafm/source/repos/EduProject/EduProject/Views/Auth/Index.cshtml]
+[C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Views/Auth/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/musafm/source/repos/EduProject/EduProject/Views/Blog/Index.cshtml]
+[C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Views/Blog/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Views/Blog/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/musafm/source/repos/EduProject/EduProject/Views/Course/Index.cshtml]
+[C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Views/Contact/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Views/Course/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Views/Course/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/musafm/source/repos/EduProject/EduProject/Views/Event/Details.cshtml]
+[C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Views/Event/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/musafm/source/repos/EduProject/EduProject/Views/Event/Index.cshtml]
+[C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Views/Event/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/musafm/source/repos/EduProject/EduProject/Views/Home/Index.cshtml]
+[C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/musafm/source/repos/EduProject/EduProject/Views/Shared/_Layout.cshtml]
+[C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/musafm/source/repos/EduProject/EduProject/Views/Teacher/Index.cshtml]
+[C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Views/Teacher/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlclxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Views/Teacher/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/musafm/source/repos/EduProject/EduProject/Views/_ViewImports.cshtml]
+[C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/musafm/source/repos/EduProject/EduProject/Views/_ViewStart.cshtml]
+[C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
