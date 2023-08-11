@@ -24,7 +24,7 @@ namespace EduProject.Controllers
         }
         public async Task<IActionResult> Details(int Id)
         {
-            var teacher =  _context.Teachers.Include(t=>t.TeacherSkill).ThenInclude(t=>t.Skill).Select(t=>t.Id == Id);
+            var teacher =  _context.Teachers.Include(t=>t.TeacherSkill).ThenInclude(t=>t.Skill).FirstOrDefaultAsync(t=>t.Id == Id);
             if (teacher is null)
             {
                 return NotFound();
