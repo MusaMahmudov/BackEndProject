@@ -57,21 +57,6 @@ namespace EduProject.Controllers
 
             await _userManager.AddToRoleAsync(User, "Member");
             return RedirectToAction("Index","Home");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         }
     }
 }
