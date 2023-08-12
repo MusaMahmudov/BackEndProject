@@ -5,10 +5,8 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
-builder.Services.ConfigureApplicationCookie(c =>
-{
-    c.LoginPath = "/Auth/Login";
-});
+builder.Services.AddHttpContextAccessor();
+
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
@@ -27,9 +25,15 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
     options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
     options.Lockout.AllowedForNewUsers = false;
 
+}).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+builder.Services.AddScoped<AppDbContextInitializer>();
+builder.Services.ConfigureApplicationCookie(c =>
+{
+    c.LoginPath = "/Auth/Login";
 });
 var app = builder.Build();
-
+app.UseAuthentication();
+app.UseAuthorization();
 app.MapControllerRoute(
             name: "areas",
             pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}"
@@ -38,8 +42,8 @@ app.MapControllerRoute(
     name:"default",
     pattern:"{Controller=Home}/{Action=Index}/{Id?}"
     );
-app.UseAuthentication();
-app.UseAuthorization();
+app.UseStaticFiles();
+
 using (var scope = app.Services.CreateScope())
 {
    var initializer = scope.ServiceProvider.GetRequiredService<AppDbContextInitializer>();
@@ -47,5 +51,4 @@ using (var scope = app.Services.CreateScope())
    await initializer.InitializerAsync();
 }
 
-app.UseStaticFiles();
 app.Run();

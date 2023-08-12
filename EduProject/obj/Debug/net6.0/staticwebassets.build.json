@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lERYXZDMiQlDjO9hog+fr1Pg26xv9MAKGI4f+edSlYk=",
+  "Hash": "Qrvn2Gr5sunAC1qAeo9UMw/N0hPviQhomki17Z74HUs=",
   "Source": "EduProject",
   "BasePath": "_content/EduProject",
   "Mode": "Default",
@@ -3636,6 +3636,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\js\\vendor\\modernizr-2.8.3.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\Templates\\reset-password.html.txt",
+      "SourceId": "EduProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\",
+      "BasePath": "_content/EduProject",
+      "RelativePath": "assets/Templates/reset-password.html.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\Templates\\reset-password.html.txt"
     }
   ]
 }

@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewData["Title"] = "SignUp";
+}
+@using EduProject.ViewModels.UserViewModel
+@model CreateUserViewModel
+
+
+<!-- Banner Area Start -->
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>sign up</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+<!-- Register start -->
+<div class="register-area pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <div class="login">
+                    <div class="login-form-container">
+                        <div class="login-text">
+                            <h2>sign up</h2>
+                            <span>Please login using account detail bellow.</span>
+                        </div>
+                        <div class="login-form">
+                            <div asp-validation-summary="ModelOnly" class="text-danger">
+
+                            </div>
+                            <form  method="post">
+                                <input asp-for="userName"  placeholder="Username">
+                                <span asp-validation-for="userName" class="text-danger"></span>
+                                <input asp-for="fullName" placeholder="Fullname">
+                                <span asp-validation-for="fullName" class="text-danger"></span>
+
+                                <input asp-for="Email" placeholder="Email">
+                                <span asp-validation-for="Email" class="text-danger"></span>
+
+                                <input asp-for="Password" placeholder="Password">
+                                <span asp-validation-for="Password" class="text-danger"></span>
+
+                                <input asp-for="confirmPassword" placeholder="confirmPassword">
+                                <span asp-validation-for="confirmPassword" class="text-danger"></span>
+
+                                <div class="button-box">
+                                    <div class="login-toggle-btn">
+                                        <input type="checkbox" id="remember">
+                                        <label for="remember">Remember me</label>
+                                    </div>
+                                    <button type="submit" class="default-btn">sign up</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Register end -->

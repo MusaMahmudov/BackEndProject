@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EduProject.Controllers
 {
+ 
     public class EventController : Controller
     {
         public IActionResult Index()

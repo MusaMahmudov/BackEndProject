@@ -42,10 +42,21 @@
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="header-top-right text-right">
-                            <ul>
-                                <li><a asp-action="index" asp-controller="Auth">login</a></li>
-                                <li><a asp-action="index" asp-controller="Account">signup</a></li>
-                            </ul>
+                            @if(!User.Identity.IsAuthenticated)
+                            {
+                                <ul>
+                                    <li><a asp-action="Login" asp-controller="Auth">login</a></li>
+                                    <li><a asp-action="Register" asp-controller="Account">signup</a></li>
+                                </ul>
+                            }
+                            else
+                            {
+                                <ul>
+                                    <li><a asp-action="Logout" asp-controller="Auth">Logout</a></li>
+                                </ul>
+                            }
+
+
                         </div>
                     </div>
                 </div>
