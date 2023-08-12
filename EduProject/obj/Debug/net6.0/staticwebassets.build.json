@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Qrvn2Gr5sunAC1qAeo9UMw/N0hPviQhomki17Z74HUs=",
+  "Hash": "y5MwinRzsFGQTEd8ChyGabUMqB4tfsIiujQP0e1j2bE=",
   "Source": "EduProject",
   "BasePath": "_content/EduProject",
   "Mode": "Default",
@@ -3638,12 +3638,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\js\\vendor\\modernizr-2.8.3.min.js"
     },
     {
-      "Identity": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\Templates\\reset-password.html.txt",
+      "Identity": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\Templates\\reset-password.html",
       "SourceId": "EduProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\",
       "BasePath": "_content/EduProject",
-      "RelativePath": "assets/Templates/reset-password.html.txt",
+      "RelativePath": "assets/Templates/reset-password.html",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -3652,7 +3652,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\Templates\\reset-password.html.txt"
+      "OriginalItemSpec": "wwwroot\\assets\\Templates\\reset-password.html"
     }
   ]
 }

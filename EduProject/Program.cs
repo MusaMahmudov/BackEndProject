@@ -1,5 +1,7 @@
 using EduProject.Contexts;
 using EduProject.Models.Identity;
+using EduProject.Services.Implemantations;
+using EduProject.Services.Intefaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,6 +13,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
+builder.Services.AddTransient<IMailService, MailService>();
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 {

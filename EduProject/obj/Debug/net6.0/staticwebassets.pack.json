@@ -357,8 +357,8 @@
       "PackagePath": "staticwebassets\\adminAssets\\vendors\\mdi\\fonts\\materialdesignicons-webfont.woff2"
     },
     {
-      "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\Templates\\reset-password.html.txt",
-      "PackagePath": "staticwebassets\\assets\\Templates\\reset-password.html.txt"
+      "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\Templates\\reset-password.html",
+      "PackagePath": "staticwebassets\\assets\\Templates\\reset-password.html"
     },
     {
       "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\css\\animate.css",

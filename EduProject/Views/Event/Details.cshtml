@@ -1,8 +1,8 @@
 ﻿
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Details Event";
 }
-
+@model DetailEventViewModel
 <!-- Banner Area Start -->
 <div class="banner-area-wrapper">
     <div class="banner-area text-center">
@@ -27,40 +27,35 @@
             <div class="col-md-8">
                 <div class="event-details">
                     <div class="event-details-img">
-                        <img src="~/assets/img/event/event-details.jpg" alt="event-details">
+                        <img src="~/assets/img/event/@Model.Image" alt="event-details">
                         <div class="event-date">
-                            <h3>20 <span>jun</span></h3>
+                            <h3>@Model.Date</h3>
                         </div>
                     </div>
                     <div class="event-details-content">
-                        <h2>ADVANCE WED DEVELOPMENT WORKSHOP</h2>
+                        <h2>@Model.Name</h2>
                         <ul>
-                            <li><span>time : </span>9:30am - 4:45pm</li>
-                            <li><span>venue : </span>Cristal Centre, 254 New Yourk</li>
+                            <li><span>time : </span>@Model.Time</li>
+                            <li><span>venue : </span>@Model.Venue</li>
                         </ul>
-                        <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human happiness pcias unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit asnatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui </p>
-                        <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human happiness pcias unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem </p>
-                        <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human happiness pcias unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
+                        <p>@Model.Description </p>
+                      
                         <div class="speakers-area fix">
                             <h4>speakers</h4>
-                            <div class="single-speaker">
-                                <div class="speaker-img">
-                                    <img src="~/assets/img/event/speaker1.jpg" alt="speaker">
+                            @foreach(var speaker in Model.Speakers)
+                            {
+                                <div class="single-speaker">
+                                    <div class="speaker-img">
+                                        <img src="~/assets/img/event/@speaker.Image" alt="speaker">
+                                    </div>
+                                    <div class="speaker-name">
+                                        <h5>@speaker.Name</h5>
+                                        <p>@speaker.Duty </p>
+                                    </div>
                                 </div>
-                                <div class="speaker-name">
-                                    <h5>Anthony Smith</h5>
-                                    <p>CEO, Hastech </p>
-                                </div>
-                            </div>
-                            <div class="single-speaker">
-                                <div class="speaker-img">
-                                    <img src="~/assets/img/event/speaker2.jpg" alt="speaker">
-                                </div>
-                                <div class="speaker-name">
-                                    <h5>Lucy Rose</h5>
-                                    <p>Developer, STD </p>
-                                </div>
-                            </div>
+                            }
+                           
+                            
                         </div>
                     </div>
                     <div class="reply-area">
