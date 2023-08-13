@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EduProject.Controllers
 {
- 
-    public class EventController : Controller
+    [Authorize] 
+     public class EventController : Controller
     {
         private readonly AppDbContext _context;
         private readonly IMapper _mapper;

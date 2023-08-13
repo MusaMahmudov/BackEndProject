@@ -14,6 +14,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
 builder.Services.AddTransient<IMailService, MailService>();
+builder.Services.AddScoped<IFileService,FileService>();
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 {

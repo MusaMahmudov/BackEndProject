@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "y5MwinRzsFGQTEd8ChyGabUMqB4tfsIiujQP0e1j2bE=",
+  "Hash": "JKcfJKaHGi04UPktHWaFIQMzYdyLvc8u56joS7D+r84=",
   "Source": "EduProject",
   "BasePath": "_content/EduProject",
   "Mode": "Default",
@@ -3126,6 +3126,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\post\\post3.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\slider\\ff4d6567-6ef3-4713-9570-78bab738f057-home.png",
+      "SourceId": "EduProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\",
+      "BasePath": "_content/EduProject",
+      "RelativePath": "assets/img/slider/ff4d6567-6ef3-4713-9570-78bab738f057-home.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\slider\\ff4d6567-6ef3-4713-9570-78bab738f057-home.png"
     },
     {
       "Identity": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\slider\\home.png",

@@ -19,6 +19,7 @@ namespace EduProject.Contexts
         public DbSet<EventSpeaker> EventSpeaker { get; set; } = null!;
 
         public DbSet<Speaker> Speakers { get; set; } = null!;
+        public DbSet<Slider> Sliders { get; set; } = null!;
 
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

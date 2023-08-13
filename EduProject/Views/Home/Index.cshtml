@@ -1,72 +1,36 @@
 ﻿@{
     ViewData["Title"] = "Home";
 }
+@model HomeViewModel
 		<!-- Background Area Start -->
         <section id="slider-container" class="slider-area two"> 
             <div class="slider-owl owl-theme owl-carousel"> 
-                <!-- Start Slingle Slide -->
-                <div class="single-slide item" style="background-image: url(assets/img/slider/slider2.jpg)">
-                    <!-- Start Slider Content -->
-                    <div class="slider-content-area">  
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-10 col-md-offset-1"> 
-                                    <div class="slide-content-wrapper">
-                                        <div class="slide-content text-center">
-                                            <h2>EDUCATION MAKES HUMANITY </h2>
-                                            <p>I must explain to you how all this mistaken idea of denouncing pleasure and prsing pain was born and I will give you a complete account of the system  </p>
-                                            <a class="default-btn" href="about.html">Learn more</a>
-                                        </div>
+                @foreach(var slider in Model.Sliders)
+              {
+            <!-- Start Slingle Slide -->
+            <div class="single-slide item" style="background-image: url(assets/img/slider/@slider.Image)">
+                <!-- Start Slider Content -->
+                <div class="slider-content-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="slide-content-wrapper">
+                                    <div class="slide-content text-center">
+                                        <h2>@slider.Title </h2>
+                                        <p>@slider.Description</p>
+                                        <a class="default-btn" href="about.html">Learn more</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Start Slider Content -->
                 </div>
-                <!-- End Slingle Slide -->
-                <!-- Start Slingle Slide -->
-                <div class="single-slide item" style="background-image: url(assets/img/slider/slider3.jpg)">
-                    <!-- Start Slider Content -->
-                    <div class="slider-content-area">   
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-10 col-md-offset-1"> 
-                                    <div class="slide-content-wrapper">
-                                        <div class="slide-content text-center">
-                                            <h2>EDUCATION MAKES HUMANITY </h2>
-                                            <p>I must explain to you how all this mistaken idea of denouncing pleasure and prsing pain was born and I will give you a complete account of the system  </p>
-                                            <a class="default-btn" href="about.html">Learn more</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Start Slider Content -->
-                </div>
-                <!-- End Slingle Slide -->
-                <!-- Start Slingle Slide -->
-                <div class="single-slide item" style="background-image: url(assets/img/slider/slider1.jpg)">
-                    <!-- Start Slider Content -->
-                    <div class="slider-content-area">  
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-10 col-md-offset-1"> 
-                                    <div class="slide-content-wrapper">
-                                        <div class="slide-content text-center">
-                                            <h2>EDUCATION MAKES HUMANITY </h2>
-                                            <p>I must explain to you how all this mistaken idea of denouncing pleasure and prsing pain was born and I will give you a complete account of the system  </p>
-                                            <a class="default-btn" href="about.html">Learn more</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Start Slider Content -->
-                </div>
-                <!-- End Slingle Slide -->								
+                <!-- Start Slider Content -->
+            </div>
+            <!-- End Slingle Slide -->
+            }
+       
+               					
             </div>
         </section>
 		<!-- Background Area End -->
@@ -243,76 +207,35 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6 col-sm-12 col-xs-12">
-                        <div class="single-event mb-35">
-                            <div class="event-img">
-                                <a href="event-details.html"><img src="~/assets/img/event/event1.jpg" alt="event"></a>
-                            </div>
-                            <div class="event-content text-left">
-                                <h3>20 June 2017</h3>
-                                <h4><a href="event-details.html">ADVANCE PHP WORKSHOP</a></h4>
-                                <ul>
-                                    <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
-                                    <li><i class="fa fa-map-marker"></i>New Yourk City</li>
-                                </ul>
-                                <div class="event-content-right">
-                                    <a class="default-btn" href="event-details.html">join now</a>
-                                </div>
-                            </div>
+        <div class="row">
+           
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                   @foreach(var Event in Model.Events)
+                {
+                    <div class="single-event mb-35">
+                        <div class="event-img">
+                            <a href="event-details.html"><img src="~/assets/img/event/@Event.Image" alt="event"></a>
                         </div>
-                        <div class="single-event hidden-sm hidden-xs">
-                            <div class="event-img">
-                                <a href="event-details.html"><img src="~/assets/img/event/event3.jpg" alt="event"></a>
-                            </div>
-                            <div class="event-content text-left">
-                                <h3>16 June 2017</h3>
-                                <h4><a href="event-details.html">learning english history</a></h4>
-                                <ul>
-                                    <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
-                                    <li><i class="fa fa-map-marker"></i>New Yourk City</li>
-                                </ul>
-                                <div class="event-content-right">
-                                    <a class="default-btn" href="event-details.html">join now</a>
-                                </div>
+                        <div class="event-content text-left">
+                            <h3>@Event.Date 2017</h3>
+                            <h4><a href="event-details.html">@Event.Name</a></h4>
+                            <ul>
+                                <li><i class="fa fa-clock-o"></i>@Event.Time</li>
+                                <li><i class="fa fa-map-marker"></i>@Event.Venue</li>
+                            </ul>
+                            <div class="event-content-right">
+                                <a class="default-btn" href="event-details.html">join now</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-12 col-xs-12">
-                        <div class="single-event mb-35">
-                            <div class="event-img">
-                                <a href="event-details.html"><img src="~/assets/img/event/event2.jpg" alt="event"></a>
-                            </div>
-                            <div class="event-content text-left">
-                                <h3>18 June 2017</h3>
-                                <h4><a href="event-details.html">DIGITAL MARKETING ANALYSIS</a></h4>
-                                <ul>
-                                    <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
-                                    <li><i class="fa fa-map-marker"></i>New Yourk City</li>
-                                </ul>
-                                <div class="event-content-right">
-                                    <a class="default-btn" href="event-details.html">join now</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-event hidden-sm hidden-xs">
-                            <div class="event-img">
-                                <a href="event-details.html"><img src="~/assets/img/event/event3.jpg" alt="event"></a>
-                            </div>
-                            <div class="event-content text-left">
-                                <h3>14 June 2017</h3>
-                                <h4><a href="event-details.html">UI & UX DESIGNER MEETUP</a></h4>
-                                <ul>
-                                    <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
-                                    <li><i class="fa fa-map-marker"></i>New Yourk City</li>
-                                </ul>
-                                <div class="event-content-right">
-                                    <a class="default-btn" href="event-details.html">join now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                }
+                
+                   
                 </div>
+               
+            
+           
+        </div>
             </div>
         </div>
         <!-- Event Area End -->
