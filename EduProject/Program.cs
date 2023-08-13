@@ -31,10 +31,12 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 
 }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 builder.Services.AddScoped<AppDbContextInitializer>();
+builder.Services.AddHttpContextAccessor();
 builder.Services.ConfigureApplicationCookie(c =>
 {
     c.LoginPath = "/Auth/Login";
 });
+
 var app = builder.Build();
 app.UseAuthentication();
 app.UseAuthorization();

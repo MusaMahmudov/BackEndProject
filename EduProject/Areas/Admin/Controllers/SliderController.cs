@@ -98,6 +98,110 @@ namespace EduProject.Areas.Admin.Controllers
 
 
         }
+        public async Task<IActionResult> Delete(int Id)
+        {
+            var Slider = await _context.Sliders.FirstOrDefaultAsync(s => s.Id == Id);
+            if (Slider == null)
+            {
+                return NotFound();
+            }
+            var deleteSliderViewModel = _mapper.Map<DeleteSliderViewModel>(Slider);
+            return View(deleteSliderViewModel);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("Delete")]
+
+        public async Task<IActionResult> DeleteSlider(int Id)
+        {
+            var Slider = await _context.Sliders.FirstOrDefaultAsync(s=>s.Id == Id);
+            if(Slider is null)
+            {
+                return NotFound();
+            }
+           
+            string path = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "img", "slider", Slider.Image);
+             _fileService.DeteleFile(path);
+            Slider.IsDeleted = true;
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+
+
+        }
+        public async Task<IActionResult> Update(int Id)
+        {
+            var Slider = await _context.Sliders.FirstOrDefaultAsync(s=>s.Id == Id);
+            if(!ModelState.IsValid)
+            {
+                return View();
+            }
+            if(Slider is null)
+            {
+                return NotFound();
+            }
+            var updateSliderViewModel = _mapper.Map<UpdateSliderViewModel>(Slider);
+
+
+            return View(updateSliderViewModel);
+
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Update(UpdateSliderViewModel updateSliderViewModel,int Id)
+        {
+            var Slider = await _context.Sliders.FirstOrDefaultAsync(s=>s.Id == Id);
+
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            if(Slider is null)
+            {
+                return NotFound();
+            }
+            string FileName = Slider.Image;
+
+            if(updateSliderViewModel.Image is not null)
+            {
+                try
+                {
+                    string path = Path.Combine(_webHostEnvironment.WebRootPath, "assets","img","slider");
+                    _fileService.DeteleFile(Path.Combine(path, FileName));
+
+                    FileName = await _fileService.CreateFileAsync(updateSliderViewModel.Image,path);
+                   
+                    Slider.Image = FileName;
+                }
+                catch (FileTypeException ex)
+                {
+                    ModelState.AddModelError("Image",ex.Message);
+                    return View();
+                }
+                catch (FileSizeException ex)
+                {
+                    ModelState.AddModelError("Image", ex.Message);
+                    return View();
+                }
+            }
+            Slider = _mapper.Map(updateSliderViewModel, Slider);
+
+            Slider.Image = FileName;
+
+             _context.Sliders.Update(Slider);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+
+
+
+
+
+
+
+
+
+        }
 
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace EduProject.Areas.Admin.ViewModels.AdminSliderViewModels
 {
-    public class DetailSliderViewModel
+    public class DeleteSliderViewModel
     {
         public string UpdatedBy { get; set; }
         public DateTime UpdatedDate { get; set; }

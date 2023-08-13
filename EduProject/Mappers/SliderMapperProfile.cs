@@ -12,6 +12,8 @@ namespace EduProject.Mappers
          CreateMap<Slider,SliderViewModel>().ReverseMap();
             CreateMap<Slider,DetailSliderViewModel>().ReverseMap();
             CreateMap<CreateSliderViewModel,Slider>().ForMember(s=>s.Image,x=>x.Ignore()).ReverseMap();
+            CreateMap<Slider, DeleteSliderViewModel>().ReverseMap();
+            CreateMap<Slider,UpdateSliderViewModel>().ForMember(up=>up.Image,x=>x.Ignore()).ReverseMap();
         }
     }
 }

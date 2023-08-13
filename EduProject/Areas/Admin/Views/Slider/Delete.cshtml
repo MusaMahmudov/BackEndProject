@@ -1,12 +1,13 @@
 ﻿
 @{
-    ViewData["Title"] = "Detail";
+    ViewData["Title"] = "Delete";
 }
+
 @using EduProject.Areas.Admin.ViewModels.AdminSliderViewModels;
 
-@model DetailSliderViewModel
+@model DeleteSliderViewModel
 <div class="col-lg-12 grid-margin stretch-card">
-    <div class="card"  >
+    <div class="card">
 
         <div class="card-body" style="font-size:20px">
 
@@ -19,8 +20,13 @@
             <h1>CreatedTime:@Model.CreatedDate</h1>
             <h1>UpdatedBy:@Model.UpdatedBy</h1>
             <h1>UpdatedTime:@Model.UpdatedDate</h1>
+            <form method="post">
 
+                <button  type="submit"  class="btn btn-primary">Delete Slider</button>
+
+            </form>
         </div>
     </div>
 </div>
+
 
