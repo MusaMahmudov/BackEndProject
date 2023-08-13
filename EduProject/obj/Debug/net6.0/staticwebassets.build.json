@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "w6EfPIZOwg1ujb8qCkjXlCvQmgz1FGhOP71Kp7ZZVpo=",
+  "Hash": "qAt7H+xbSzXxxTOXdVe/W/84Tn3+oFA0hEsALVrK28U=",
   "Source": "EduProject",
   "BasePath": "_content/EduProject",
   "Mode": "Default",
@@ -3128,12 +3128,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\post\\post3.jpg"
     },
     {
-      "Identity": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\slider\\ec7e5824-35a7-4c52-bcef-8e035456785b-Sabina.jpg",
+      "Identity": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\slider\\7d0335b4-45a0-42fb-90e0-ccf15819c7e8-istockphoto-1200555757-170667a.jpg",
       "SourceId": "EduProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\",
       "BasePath": "_content/EduProject",
-      "RelativePath": "assets/img/slider/ec7e5824-35a7-4c52-bcef-8e035456785b-Sabina.jpg",
+      "RelativePath": "assets/img/slider/7d0335b4-45a0-42fb-90e0-ccf15819c7e8-istockphoto-1200555757-170667a.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -3142,7 +3142,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\slider\\ec7e5824-35a7-4c52-bcef-8e035456785b-Sabina.jpg"
+      "OriginalItemSpec": "wwwroot\\assets\\img\\slider\\7d0335b4-45a0-42fb-90e0-ccf15819c7e8-istockphoto-1200555757-170667a.jpg"
     },
     {
       "Identity": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\slider\\home.png",

@@ -54,6 +54,11 @@ namespace EduProject.Controllers
                     return View();
                 }
             }
+            if (!userName.IsActive)
+            {
+                ModelState.AddModelError("", "Your account is not active");
+                return View();
+            }
             var signInResult = await _signInManager.PasswordSignInAsync(userName, loginViewModel.Password, loginViewModel.RememberMe, true);
             if (!signInResult.Succeeded)
             {

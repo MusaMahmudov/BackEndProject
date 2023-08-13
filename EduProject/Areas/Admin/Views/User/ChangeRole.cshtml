@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "Change Role";
+}
+
+@using EduProject.Areas.Admin.ViewModels.UserViewModels;
+
+@model ChangeUserViewModel
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Update Slider</h4>
+
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <label for="Id">Roles</label>
+                    <select asp-for="RoleId" asp-items="@ViewBag.Roles" class="form-control" id="RoleId">
+                    </select>
+                </div>
+               @* <div class="form-group">
+                    <label for="Id">Roles</label>
+                    <select asp-for="IsActive" class="form-control" id="RoleId">
+                    </select>
+                </div>*@
+               
+                <button type="submit" asp-action="ChangeRole" class="btn btn-primary mr-2">Update</button>
+            </form>
+        </div>
+    </div>
+</div>

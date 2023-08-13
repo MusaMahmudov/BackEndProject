@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 namespace EduProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin,Moderator")]
+    [Authorize(Roles = "Admin")]
     public class SliderController : Controller
     {
         private readonly AppDbContext _context;
@@ -26,6 +26,7 @@ namespace EduProject.Areas.Admin.Controllers
             _context = context;
             _webHostEnvironment = webHostEnvironment;
         }
+        [Authorize(Roles = "Moderator,Admin")]
         public async Task<IActionResult> Index()
         {
             var Sliders = await _context.Sliders.AsNoTracking().ToListAsync();
@@ -43,12 +44,14 @@ namespace EduProject.Areas.Admin.Controllers
 
             return View(detailSliderViewModel);
         }
+        [Authorize(Roles = "Moderator,Admin")]
         public async Task<IActionResult> Create()
         {
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Moderator,Admin")]
         public async Task<IActionResult> Create(CreateSliderViewModel createSliderViewModel)
         {
             if(!ModelState.IsValid)
@@ -100,6 +103,10 @@ namespace EduProject.Areas.Admin.Controllers
         }
         public async Task<IActionResult> Delete(int Id)
         {
+            if(_context.Sliders.Count() <= 1 )
+            {
+                return BadRequest();
+            }
             var Slider = await _context.Sliders.FirstOrDefaultAsync(s => s.Id == Id);
             if (Slider == null)
             {
@@ -114,6 +121,10 @@ namespace EduProject.Areas.Admin.Controllers
 
         public async Task<IActionResult> DeleteSlider(int Id)
         {
+            if (_context.Sliders.Count() <= 1)
+            {
+                return BadRequest();
+            }
             var Slider = await _context.Sliders.FirstOrDefaultAsync(s=>s.Id == Id);
             if(Slider is null)
             {
@@ -128,6 +139,7 @@ namespace EduProject.Areas.Admin.Controllers
 
 
         }
+        [Authorize(Roles = "Moderator,Admin")]
         public async Task<IActionResult> Update(int Id)
         {
             var Slider = await _context.Sliders.FirstOrDefaultAsync(s=>s.Id == Id);
@@ -148,6 +160,7 @@ namespace EduProject.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Moderator,Admin")]
         public async Task<IActionResult> Update(UpdateSliderViewModel updateSliderViewModel,int Id)
         {
             var Slider = await _context.Sliders.FirstOrDefaultAsync(s=>s.Id == Id);
