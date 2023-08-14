@@ -521,6 +521,14 @@
       "PackagePath": "staticwebassets\\assets\\img\\banner\\banner.jpg"
     },
     {
+      "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\blog\\06da8451-eaa9-428f-97a7-1da5795aa05b-blog4.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\06da8451-eaa9-428f-97a7-1da5795aa05b-blog4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\blog\\5d576388-09cc-4066-a625-fc1beb53a1d1-blog5.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\5d576388-09cc-4066-a625-fc1beb53a1d1-blog5.jpg"
+    },
+    {
       "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\blog\\blog-detail.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\blog\\blog-detail.jpg"
     },

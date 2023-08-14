@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "H/gwubnPHxcZb6ljlZZwqf1WAGUOg89KnSPiTQrchsM=",
+  "Hash": "/fd3Ygc3ArtImDYheGy48jKbjTWycK0egc8PzY3GClU=",
   "Source": "EduProject",
   "BasePath": "_content/EduProject",
   "Mode": "Default",
@@ -2191,6 +2191,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\banner.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\blog\\06da8451-eaa9-428f-97a7-1da5795aa05b-blog4.jpg",
+      "SourceId": "EduProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\",
+      "BasePath": "_content/EduProject",
+      "RelativePath": "assets/img/blog/06da8451-eaa9-428f-97a7-1da5795aa05b-blog4.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\blog\\06da8451-eaa9-428f-97a7-1da5795aa05b-blog4.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\blog\\5d576388-09cc-4066-a625-fc1beb53a1d1-blog5.jpg",
+      "SourceId": "EduProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\",
+      "BasePath": "_content/EduProject",
+      "RelativePath": "assets/img/blog/5d576388-09cc-4066-a625-fc1beb53a1d1-blog5.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\blog\\5d576388-09cc-4066-a625-fc1beb53a1d1-blog5.jpg"
     },
     {
       "Identity": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\blog\\blog1.jpg",

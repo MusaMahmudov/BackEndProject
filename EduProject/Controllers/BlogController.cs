@@ -24,9 +24,12 @@ namespace EduProject.Controllers
 
             return View(blogViewModel);
         }
-        public IActionResult Details()
+        public async Task<IActionResult> Details(int Id)
         {
-            return View();
+            var Blog =await _context.Blogs.FirstOrDefaultAsync(b=>b.Id == Id);
+            var detailBlogViewModel = _mapper.Map<DetailBlogViewModel>(Blog);
+
+            return View(detailBlogViewModel);
         }
         public IActionResult LeftSidebar()
         {

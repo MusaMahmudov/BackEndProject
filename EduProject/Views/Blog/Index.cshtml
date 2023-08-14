@@ -41,8 +41,8 @@
                                 <p>By @Blog.CreatedBy  / @Blog.CreatedDate.Day   @CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(Blog.CreatedDate.Month), @Blog.CreatedDate.Year  /  <i class="fa fa-comments-o"></i> 4</p>
                             </div>
                             <div class="blog-bottom">
-                                <h2><a href="blog-details.html">@Blog.Name </a></h2>
-                                <a href="blog-details.html">read more</a>
+                                <h2><a asp-action="Details">@Blog.Name </a></h2>
+                                <a asp-action="Details">read more</a>
                             </div>
                         </div>
                     </div>
@@ -51,17 +51,7 @@
             }
            
         </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="pagination">
-                    <ul>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+       
     </div>
 </div>
 <!-- Blog End -->
