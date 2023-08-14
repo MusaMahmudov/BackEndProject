@@ -29,6 +29,7 @@ public class AppDbContextInitializer
         }
         AppUser adminUser = new AppUser()
         {
+            EmailConfirmed = true,
             UserName = "admin",
             Fullname = "adminAdminov",
             IsActive = true,

@@ -15,6 +15,7 @@ namespace EduProject.Mappers
             CreateMap<Blog, UpdateBlogViewModel>().ForMember(b=>b.Image,x=>x.Ignore())
                 .ReverseMap();
             CreateMap<Blog, AdminCreateBlogViewModel>().ReverseMap();
+            CreateMap<Blog,DeleteBlogViewModel>().ReverseMap();
 
         }
     }

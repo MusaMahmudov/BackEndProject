@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@using EduProject.Areas.Admin.ViewModels.AdminEventViewModels
+
+@model IEnumerable<AdminEventViewModel>
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Blogs</h4>
+
+                    <div class="table-responsive">
+
+                        <a class="btn btn-primary" asp-action="create">Create</a>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (AdminEventViewModel Event in Model)
+                                {
+                                    <tr>
+                                        <td><img src="~/assets/img/Event//@Event.Image" /></td>
+                                        <td>@Event.Name</td>
+                                        <td>@Event.Description</td>
+
+                                        <td><a class="btn btn-primary" asp-action="Detail" asp-route-id="@Event.Id">Detail</a></td>
+                                        <td><a class="btn btn-warning" asp-action="Update" asp-route-id="@Event.Id">Update</a></td>
+
+                                        <td><a class="btn btn-danger @(Model.Count() <= 3 ? "disabled" : "")" asp-action="Delete" asp-route-id="@Event.Id">Delete</a></td>
+
+
+
+                                    </tr>
+                                }
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- content-wrapper ends -->

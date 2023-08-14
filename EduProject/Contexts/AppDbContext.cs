@@ -26,6 +26,7 @@ namespace EduProject.Contexts
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Slider>().HasQueryFilter(s=>s.IsDeleted == false);
+            builder.Entity<Blog>().HasQueryFilter(b=>b.IsDeleted == false);
 
             base.OnModelCreating(builder);
         }

@@ -54,8 +54,9 @@ app.UseStaticFiles();
 using (var scope = app.Services.CreateScope())
 {
    var initializer = scope.ServiceProvider.GetRequiredService<AppDbContextInitializer>();
-   await initializer.UserSeedAsync();
-   await initializer.InitializerAsync();
+    await initializer.InitializerAsync();
+
+    await initializer.UserSeedAsync();
 }
 
 app.Run();

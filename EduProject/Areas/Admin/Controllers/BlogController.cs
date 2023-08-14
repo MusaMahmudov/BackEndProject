@@ -103,17 +103,17 @@ namespace EduProject.Areas.Admin.Controllers
         }
         public async Task<IActionResult> Delete(int Id)
         {
-            if (_context.Sliders.Count() <= 1)
+            if (_context.Blogs.Count() <= 3)
             {
                 return BadRequest();
             }
-            var Slider = await _context.Sliders.FirstOrDefaultAsync(s => s.Id == Id);
-            if (Slider == null)
+            var blog = await _context.Blogs.FirstOrDefaultAsync(s => s.Id == Id);
+            if (blog is null)
             {
                 return NotFound();
             }
-            var deleteSliderViewModel = _mapper.Map<DeleteSliderViewModel>(Slider);
-            return View(deleteSliderViewModel);
+            var deleteBlogViewModel = _mapper.Map<DeleteBlogViewModel>(blog);
+            return View(deleteBlogViewModel);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -121,19 +121,19 @@ namespace EduProject.Areas.Admin.Controllers
 
         public async Task<IActionResult> DeleteSlider(int Id)
         {
-            if (_context.Sliders.Count() <= 1)
+            if (_context.Blogs.Count() <= 3)
             {
                 return BadRequest();
             }
-            var Slider = await _context.Sliders.FirstOrDefaultAsync(s => s.Id == Id);
-            if (Slider is null)
+            var blog = await _context.Blogs.FirstOrDefaultAsync(s => s.Id == Id);
+            if (blog is null)
             {
                 return NotFound();
             }
 
-            string path = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "img", "slider", Slider.Image);
+            string path = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "img", "blog", blog.Image);
             _fileService.DeteleFile(path);
-            Slider.IsDeleted = true;
+            blog.IsDeleted = true;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
 

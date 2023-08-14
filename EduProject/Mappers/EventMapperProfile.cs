@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using EduProject.Areas.Admin.ViewModels.AdminEventViewModels;
 using EduProject.Models;
 using EduProject.ViewModels.EventViewModels;
 
@@ -12,6 +13,8 @@ namespace EduProject.Mappers
             CreateMap<Event, DetailEventViewModel>()
                 .ForMember(evc=>evc.Speakers,x=>x.MapFrom(e=>e.eventSpeakers.Select(es=>es.Speaker)))
                 .ReverseMap();
+            CreateMap<Event, AdminEventViewModel>().ReverseMap();
+            CreateMap<CreateEventViewModel,Event>() .ReverseMap();
 
         }
     }
