@@ -107,8 +107,7 @@ namespace EduProject.Controllers
             {
                foreach(var error in identityResult.Errors)
                 {
-                    ModelState.AddModelError("",error.Description);
-                    return RedirectToAction(nameof(Register));
+                    return BadRequest();
                 }
             }
             return RedirectToAction(nameof(Success));

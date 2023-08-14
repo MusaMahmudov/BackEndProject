@@ -18,7 +18,6 @@ namespace EduProject.Controllers
         {
             _mailService = mailService;
             _webHostEnvironment = webHostEnvironment;
-
             _userManager = userManager;
             _signInManager = signInManager;
         }
