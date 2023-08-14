@@ -60,16 +60,17 @@ namespace EduProject.Controllers
                 return View();
             }
             var signInResult = await _signInManager.PasswordSignInAsync(userName, loginViewModel.Password, loginViewModel.RememberMe, true);
-            if (!signInResult.Succeeded)
-            {
-                ModelState.AddModelError("", "Username/Mail or password is incoreect");
-                return View();
-            }
             if (signInResult.IsLockedOut)
             {
                 ModelState.AddModelError("", "The number of unsuccessful attempts exceeded the limit, try again after 1 minute");
                 return View();
             }
+            if (!signInResult.Succeeded)
+            {
+                ModelState.AddModelError("", "Username/Mail or password is incoreect");
+                return View();
+            }
+           
 
             if (!userName.LockoutEnabled)
             {
@@ -113,7 +114,7 @@ namespace EduProject.Controllers
             }
             var Token = await _userManager.GeneratePasswordResetTokenAsync(userName);
 
-            var link = Url.Action("ResetPassword", "Auth", new { email = forgotPasswordViewModel.Email, token = Token }, HttpContext.Request.Scheme);
+            var link = Url.Action("ResetPassword", "Auth", new {  token = Token,email = forgotPasswordViewModel.Email }, HttpContext.Request.Scheme);
             string body = await GetEmailTemplate(link);
             MailRequest mailRequest = new MailRequest()
             {

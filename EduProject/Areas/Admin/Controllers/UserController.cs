@@ -49,7 +49,8 @@ namespace EduProject.Areas.Admin.Controllers
                 UserName = User.UserName,
                 Email = User.Email,
                 Fullname = User.Fullname,
-                Role = role.Name
+                Role = role.Name,
+                IsActive = User.IsActive
             };
             return View(detailUserViewModel);
 
@@ -86,10 +87,42 @@ namespace EduProject.Areas.Admin.Controllers
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
-
-
-
-
         }
+        public async Task<IActionResult> ChangeStatus(string Id)
+        {
+             
+            var User = await _context.Users.FirstOrDefaultAsync(u => u.Id == Id);
+            if (User is null) 
+                return NotFound();
+             
+            StatusUserViewModel statusUserViewModel = _mapper.Map<StatusUserViewModel>(User);
+           
+
+            return View(statusUserViewModel);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangeStatus(StatusUserViewModel statusUserViewModel,string Id)
+        {
+            var User = await _context.Users.FirstOrDefaultAsync(u => u.Id == Id);
+            if (User is null)
+                return NotFound();
+            
+            if(!User.IsActive)
+            {
+                User.IsActive = true;
+            }
+            else
+            {
+                User.IsActive = false;
+            }
+
+
+            _context.Users.Update(User);
+          await  _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+        
     }
 }

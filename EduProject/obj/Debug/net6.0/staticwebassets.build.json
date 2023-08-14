@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qAt7H+xbSzXxxTOXdVe/W/84Tn3+oFA0hEsALVrK28U=",
+  "Hash": "H/gwubnPHxcZb6ljlZZwqf1WAGUOg89KnSPiTQrchsM=",
   "Source": "EduProject",
   "BasePath": "_content/EduProject",
   "Mode": "Default",
@@ -3653,6 +3653,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\js\\vendor\\modernizr-2.8.3.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\Templates\\confirm-email.html",
+      "SourceId": "EduProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\",
+      "BasePath": "_content/EduProject",
+      "RelativePath": "assets/Templates/confirm-email.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\Templates\\confirm-email.html"
     },
     {
       "Identity": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\Templates\\reset-password.html",
