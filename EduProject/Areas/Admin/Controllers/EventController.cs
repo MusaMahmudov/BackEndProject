@@ -1,11 +1,9 @@
 ﻿using AutoMapper;
-using EduProject.Areas.Admin.ViewModels.AdminBlogViewModels;
 using EduProject.Areas.Admin.ViewModels.AdminEventViewModels;
 using EduProject.Contexts;
 using EduProject.Exceptions;
 using EduProject.Models;
 using EduProject.Services.Intefaces;
-using EduProject.Utils.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -47,6 +45,7 @@ namespace EduProject.Areas.Admin.Controllers
         [Authorize(Roles = "Moderator,Admin")]
         public async Task<IActionResult> Create(CreateEventViewModel createEventViewModel)
         {
+           
             ViewBag.Speakers = new SelectList(await _context.Speakers.ToListAsync(), "Id", "Name");
 
             if (!ModelState.IsValid)
@@ -104,6 +103,57 @@ namespace EduProject.Areas.Admin.Controllers
             await _context.SaveChangesAsync();
 
 
+            return RedirectToAction(nameof(Index));
+
+
+        }
+        public async Task<IActionResult> Details(int Id)
+        {
+            var Event = await _context.Events.Include(e=>e.eventSpeakers).ThenInclude(e=>e.Speaker).AsNoTracking().FirstOrDefaultAsync(e=>e.Id==Id);
+            if(Event is null)
+            {
+                return View();
+            }
+            var DetailEventViewModel = _mapper.Map<AdminDetailEventViewModel>(Event);
+            return View(DetailEventViewModel);
+
+        }
+        public async Task<IActionResult> Delete(int Id)
+        {
+            if (_context.Events.Count() <= 3)
+            {
+                return BadRequest();
+            }
+            var Event = await _context.Events.FirstOrDefaultAsync(e => e.Id == Id);
+            if(Event is null)
+            {
+                return NotFound();
+            }
+            var adminEventViewModel = _mapper.Map<AdminEventViewModel>(Event);
+            return View(adminEventViewModel);
+
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("Delete")]
+
+        public async Task<IActionResult> DeleteEvent(int Id)
+        {
+            if (_context.Events.Count() <= 3)
+            {
+                return BadRequest();
+            }
+            var Event = await _context.Events.FirstOrDefaultAsync(e => e.Id == Id);
+            if (Event is null)
+            {
+                return NotFound();
+            }
+
+            string path = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "img", "event", Event.Image);
+            _fileService.DeteleFile(path);
+            Event.IsDeleted = true;
+            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
 
 

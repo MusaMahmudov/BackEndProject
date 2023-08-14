@@ -119,7 +119,7 @@ namespace EduProject.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         [ActionName("Delete")]
 
-        public async Task<IActionResult> DeleteSlider(int Id)
+        public async Task<IActionResult> DeleteBlog(int Id)
         {
             if (_context.Blogs.Count() <= 3)
             {

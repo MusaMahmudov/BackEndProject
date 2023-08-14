@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EduProject.Controllers
 {
-    [Authorize] 
+    
      public class EventController : Controller
     {
         private readonly AppDbContext _context;
@@ -20,6 +20,7 @@ namespace EduProject.Controllers
         }
         public async Task<IActionResult> Index()
         {
+           
             var Events =await _context.Events.AsNoTracking().ToListAsync();
             List<EventViewModel> EventsViewModel =  _mapper.Map<List<EventViewModel>>(Events) ;
             return View(EventsViewModel);
