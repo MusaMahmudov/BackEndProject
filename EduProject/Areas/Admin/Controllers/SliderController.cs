@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 namespace EduProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,Moderator")]
     public class SliderController : Controller
     {
         private readonly AppDbContext _context;
@@ -33,6 +33,7 @@ namespace EduProject.Areas.Admin.Controllers
             List<SliderViewModel> adminSliderViewModel = _mapper.Map<List<SliderViewModel>>(Sliders);
             return View(adminSliderViewModel);
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult Detail(int Id)
         {
             var Slider = _context.Sliders.FirstOrDefault(x => x.Id == Id);
@@ -101,6 +102,7 @@ namespace EduProject.Areas.Admin.Controllers
 
 
         }
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int Id)
         {
             if(_context.Sliders.Count() <= 1 )
@@ -118,7 +120,7 @@ namespace EduProject.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("Delete")]
-
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteSlider(int Id)
         {
             if (_context.Sliders.Count() <= 1)

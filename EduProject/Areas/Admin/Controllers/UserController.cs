@@ -6,6 +6,7 @@ using EduProject.Services.Intefaces;
 using EduProject.Utils.Enums;
 using EduProject.ViewModels;
 using EduProject.ViewModels.UserViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -16,6 +17,7 @@ using Microsoft.Win32;
 namespace EduProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin,Moderator")]
     public class UserController : Controller
     {
         private readonly AppDbContext _context;
@@ -33,6 +35,7 @@ namespace EduProject.Areas.Admin.Controllers
             _userManager = userManager;
             _context = context;
         }
+        [Authorize(Roles = "Admin,Moderator")]
         public async Task<IActionResult> Index()
         {
 
@@ -40,6 +43,7 @@ namespace EduProject.Areas.Admin.Controllers
             List<UserViewModel> userViewModel = _mapper.Map<List<UserViewModel>>(users);
             return View(userViewModel);
         }
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Detail(string Id)
         {
             var User =await _context.Users.AsNoTracking().FirstOrDefaultAsync(u=>u.Id == Id);
@@ -67,6 +71,7 @@ namespace EduProject.Areas.Admin.Controllers
             return View(detailUserViewModel);
 
         }
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ChangeRole(string Id)
         {
             ViewBag.Roles = new SelectList(await _context.Roles.ToListAsync(),"Id","Name");
@@ -81,6 +86,7 @@ namespace EduProject.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ChangeRole(ChangeUserViewModel changeUserViewModel,string Id)
         {
             ViewBag.Roles = new SelectList(await _context.Roles.ToListAsync(), "Id", "Name");
@@ -100,6 +106,7 @@ namespace EduProject.Areas.Admin.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ChangeStatus(string Id)
         {
              
@@ -114,6 +121,7 @@ namespace EduProject.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ChangeStatus(StatusUserViewModel statusUserViewModel,string Id)
         {
             var User = await _context.Users.FirstOrDefaultAsync(u => u.Id == Id);
@@ -135,12 +143,14 @@ namespace EduProject.Areas.Admin.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+        [Authorize(Roles = "Admin,Moderator")]
         public async Task<IActionResult> Create()
         {
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Moderator")]
         public async Task<IActionResult> Create(CreateUserViewModel createUserViewModel)
         {
             if(!ModelState.IsValid)

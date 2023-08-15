@@ -14,6 +14,7 @@ using Microsoft.EntityFrameworkCore;
 namespace EduProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin,Moderator")]
     public class BlogController : Controller
     {
         private readonly IWebHostEnvironment _webHostEnvironment;
@@ -29,10 +30,11 @@ namespace EduProject.Areas.Admin.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var Blogs = await _context.Blogs.AsNoTracking().ToListAsync();
+            var Blogs = await _context.Blogs.AsNoTracking().OrderByDescending(b=>b.CreatedDate).ToListAsync();
             var blogViewModel = _mapper.Map<List<BlogViewModel>>(Blogs);
             return View(blogViewModel);
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult Detail(int Id)
         {
             var Blog = _context.Blogs.FirstOrDefault(x => x.Id == Id);
@@ -101,6 +103,7 @@ namespace EduProject.Areas.Admin.Controllers
 
 
         }
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int Id)
         {
             if (_context.Blogs.Count() <= 3)
@@ -118,7 +121,7 @@ namespace EduProject.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("Delete")]
-
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteBlog(int Id)
         {
             if (_context.Blogs.Count() <= 3)

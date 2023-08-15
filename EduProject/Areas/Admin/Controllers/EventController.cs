@@ -18,6 +18,7 @@ using EduProject.Models.Identity;
 namespace EduProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin,Moderator")]
     public class EventController : Controller
     {
         private readonly AppDbContext _context;
@@ -43,6 +44,7 @@ namespace EduProject.Areas.Admin.Controllers
             var adminEventViewModel = _mapper.Map<List<AdminEventViewModel>>(Events);
             return View(adminEventViewModel);
         }
+        [Authorize(Roles = "Moderator,Admin")]
         public async Task<IActionResult> Create()
         {
             ViewBag.Speakers = new SelectList(await _context.Speakers.ToListAsync(),"Id","Name");
@@ -140,6 +142,7 @@ namespace EduProject.Areas.Admin.Controllers
 
 
         }
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Details(int Id)
         {
             var Event = await _context.Events.Include(e=>e.eventSpeakers).ThenInclude(e=>e.Speaker).AsNoTracking().FirstOrDefaultAsync(e=>e.Id==Id);
@@ -151,6 +154,7 @@ namespace EduProject.Areas.Admin.Controllers
             return View(DetailEventViewModel);
 
         }
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int Id)
         {
             if (_context.Events.Count() <= 3)
@@ -170,6 +174,7 @@ namespace EduProject.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("Delete")]
+        [Authorize(Roles = "Admin")]
 
         public async Task<IActionResult> DeleteEvent(int Id)
         {

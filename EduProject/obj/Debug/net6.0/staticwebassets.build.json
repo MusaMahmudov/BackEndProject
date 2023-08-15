@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dVLituRKnoX8gQxB6dWMzGVWjPQC1a6z1s8pvKbaqZQ=",
+  "Hash": "ITQ16970Km0VNAP6Xk2mYgbxPfhBEXVOSkIgJeoCC5c=",
   "Source": "EduProject",
   "BasePath": "_content/EduProject",
   "Mode": "Default",
@@ -2227,6 +2227,40 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\blog\\32e66b8c-e6c6-4e0f-b62d-da7e6eb4ceb8-blog5.jpg"
     },
     {
+      "Identity": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\blog\\6dca244a-9f30-4036-9f9f-38cef8467c48-blog4.jpg",
+      "SourceId": "EduProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\",
+      "BasePath": "_content/EduProject",
+      "RelativePath": "assets/img/blog/6dca244a-9f30-4036-9f9f-38cef8467c48-blog4.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\blog\\6dca244a-9f30-4036-9f9f-38cef8467c48-blog4.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\blog\\7583d6e1-4f23-4339-8faf-756f020722ca-blog9.jpg",
+      "SourceId": "EduProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\",
+      "BasePath": "_content/EduProject",
+      "RelativePath": "assets/img/blog/7583d6e1-4f23-4339-8faf-756f020722ca-blog9.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\blog\\7583d6e1-4f23-4339-8faf-756f020722ca-blog9.jpg"
+    },
+    {
       "Identity": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\blog\\a6ac8cf9-225c-4bf9-b34a-046b5b515213-blog2.jpg",
       "SourceId": "EduProject",
       "SourceType": "Discovered",
@@ -2242,6 +2276,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\blog\\a6ac8cf9-225c-4bf9-b34a-046b5b515213-blog2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\blog\\ae2a04a3-41fd-4780-a1d3-396326837fae-blog9.jpg",
+      "SourceId": "EduProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\",
+      "BasePath": "_content/EduProject",
+      "RelativePath": "assets/img/blog/ae2a04a3-41fd-4780-a1d3-396326837fae-blog9.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\blog\\ae2a04a3-41fd-4780-a1d3-396326837fae-blog9.jpg"
     },
     {
       "Identity": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\blog\\blog1.jpg",
@@ -2718,6 +2769,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\event\\30a2fd67-fb9e-4a27-a109-962fe86d48e2-event9.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\event\\4968752c-3c0c-4227-ac2b-dd22d4a13838-event13.jpg",
+      "SourceId": "EduProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\",
+      "BasePath": "_content/EduProject",
+      "RelativePath": "assets/img/event/4968752c-3c0c-4227-ac2b-dd22d4a13838-event13.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\event\\4968752c-3c0c-4227-ac2b-dd22d4a13838-event13.jpg"
     },
     {
       "Identity": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\event\\event1.jpg",
