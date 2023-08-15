@@ -16,7 +16,10 @@ namespace EduProject.Mappers
             CreateMap<Event, AdminEventViewModel>().ReverseMap();
             CreateMap<CreateEventViewModel,Event>() .ReverseMap();
             CreateMap<Event,AdminDetailEventViewModel>().ForMember(evc=>evc.Speakers,x=>x.MapFrom(e=>e.eventSpeakers.Select(s=>s.Speaker.Name))).ReverseMap();
+            CreateMap<Event,UpdateEventViewModel>().ForMember(evc => evc.SpeakerId, x => x.MapFrom(e => e.eventSpeakers.Select(s => s.SpeakerId)))
+                .ForMember(evc=>evc.Image,e=>e.Ignore())
 
+                .ReverseMap();
         }
     }
 }

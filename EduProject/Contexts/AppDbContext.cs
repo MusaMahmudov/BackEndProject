@@ -28,6 +28,8 @@ namespace EduProject.Contexts
             builder.Entity<Slider>().HasQueryFilter(s=>s.IsDeleted == false);
             builder.Entity<Blog>().HasQueryFilter(b=>b.IsDeleted == false);
             builder.Entity<Event>().HasQueryFilter(Event => Event.IsDeleted == false);
+            builder.Entity<Speaker>().HasQueryFilter(Speaker => Speaker.IsDeleted == false);
+
             base.OnModelCreating(builder);
         }
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

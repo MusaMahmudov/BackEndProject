@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using EduProject.Areas.Admin.ViewModels.AdminBlogViewModels;
 using EduProject.Areas.Admin.ViewModels.AdminEventViewModels;
 using EduProject.Contexts;
 using EduProject.Exceptions;
@@ -156,6 +157,102 @@ namespace EduProject.Areas.Admin.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
 
+
+        }
+        [Authorize(Roles = "Moderator,Admin")]
+        public async Task<IActionResult> Update(int Id)
+        {
+            ViewBag.Speakers = new SelectList(await _context.Speakers.ToListAsync(),"Id","Name");
+            var Event = await _context.Events.FirstOrDefaultAsync(s => s.Id == Id);
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            if (Event is null)
+            {
+                return NotFound();
+            }
+            var updateEventViewModel = _mapper.Map<UpdateEventViewModel>(Event);
+
+
+            return View(updateEventViewModel);
+
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Moderator,Admin")]
+        public async Task<IActionResult> Update(UpdateEventViewModel updateEventViewModel, int Id)
+        {
+            ViewBag.Speakers = new SelectList(await _context.Speakers.ToListAsync(), "Id", "Name");
+
+            var Event = await _context.Events.FirstOrDefaultAsync(s => s.Id == Id);
+            List<EventSpeaker> EventSpeakers =await  _context.EventSpeaker.ToListAsync();
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            if (Event is null)
+            {
+                return NotFound();
+            }
+            string FileName = Event.Image;
+
+            if (updateEventViewModel.Image is not null)
+            {
+                try
+                {
+                    string path = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "img", "event");
+                    _fileService.DeteleFile(Path.Combine(path, FileName));
+
+                    FileName = await _fileService.CreateFileAsync(updateEventViewModel.Image, path);
+
+                    Event.Image = FileName;
+                }
+                catch (FileTypeException ex)
+                {
+                    ModelState.AddModelError("Image", ex.Message);
+                    return View();
+                }
+                catch (FileSizeException ex)
+                {
+                    ModelState.AddModelError("Image", ex.Message);
+                    return View();
+                }
+            }
+            if(updateEventViewModel.SpeakerId is not null)
+            {
+                
+                EventSpeakers.RemoveAll(Event=>Event.EventId == Event.Id);
+
+                
+
+                List<EventSpeaker> newSpeakers = new List<EventSpeaker>();
+
+                for (int i = 0; i < updateEventViewModel.SpeakerId.Count(); i++)
+                {
+                    EventSpeaker eventSpeaker = new EventSpeaker()
+                    {
+                        EventId = Event.Id,
+                        SpeakerId = updateEventViewModel.SpeakerId[i]
+                    };
+
+
+                    newSpeakers.Add(eventSpeaker);
+
+                }
+                Event.eventSpeakers = newSpeakers; 
+            }
+          
+
+            Event = _mapper.Map(updateEventViewModel, Event);
+            Event.Image = FileName;
+          
+            
+            _context.Events.Update(Event);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
 
         }
     }

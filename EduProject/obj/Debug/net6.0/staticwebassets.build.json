@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Nvv5OAWmiB6CPNHZIxIoXJnDBDhWAl8pHgp31R4pGwM=",
+  "Hash": "+e6mQIcnDkT2mqKC78h4GnM/mZlbsDiX3uOu5bs+auY=",
   "Source": "EduProject",
   "BasePath": "_content/EduProject",
   "Mode": "Default",
@@ -2939,40 +2939,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\event\\event-details.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\event\\speaker1.jpg",
-      "SourceId": "EduProject",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\",
-      "BasePath": "_content/EduProject",
-      "RelativePath": "assets/img/event/speaker1.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\event\\speaker1.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\event\\speaker2.jpg",
-      "SourceId": "EduProject",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\",
-      "BasePath": "_content/EduProject",
-      "RelativePath": "assets/img/event/speaker2.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\event\\speaker2.jpg"
     },
     {
       "Identity": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\footer\\footer1.jpg",
