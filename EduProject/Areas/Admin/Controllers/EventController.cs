@@ -5,11 +5,15 @@ using EduProject.Contexts;
 using EduProject.Exceptions;
 using EduProject.Models;
 using EduProject.Services.Intefaces;
+using EduProject.ViewModels.UserViewModel;
+using EduProject.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using EduProject.Models.Identity;
 
 namespace EduProject.Areas.Admin.Controllers
 {
@@ -20,13 +24,17 @@ namespace EduProject.Areas.Admin.Controllers
         private readonly IMapper _mapper;
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly IFileService _fileService;
-
-        public EventController(AppDbContext context,IMapper mapper, IWebHostEnvironment webHostEnvironment,IFileService fileService)
+        private readonly UserManager<AppUser> _userManager;
+        private readonly IMailService _mailService;
+        public EventController(AppDbContext context,IMapper mapper, IWebHostEnvironment webHostEnvironment,IFileService fileService,UserManager<AppUser> userManager,IMailService mailService)
         {
+            _mailService = mailService;
+            _userManager = userManager;
             _fileService = fileService;
             _mapper = mapper;
             _context = context;
             _webHostEnvironment = webHostEnvironment;
+            
         }
         public IActionResult Index()
         {
@@ -101,10 +109,34 @@ namespace EduProject.Areas.Admin.Controllers
             }
             newEvent.eventSpeakers = speakers;
             await _context.Events.AddAsync(newEvent);
+
+            foreach (var subscribe in _context.subscribeUsers)
+            {
+               
+                MailRequest mailRequest = new MailRequest()
+                {
+                    Subject = "New Event",
+                    ToEmail = subscribe.Email,
+                    Body = $"{newEvent.Name} has been posted"
+                };
+                await _mailService.SendEMailAsync(mailRequest);
+            }
+           
+
+
             await _context.SaveChangesAsync();
 
 
             return RedirectToAction(nameof(Index));
+
+
+        }
+        private async Task<string> GetEmailTemplate(string link)
+        {
+            string path = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "Templates", "confirm-email.html");
+            using StreamReader streamReader = new StreamReader(path);
+            string result = await streamReader.ReadToEndAsync();
+            return result.Replace("[link]", link);
 
 
         }

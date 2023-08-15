@@ -22,6 +22,7 @@ namespace EduProject.Contexts
         public DbSet<Speaker> Speakers { get; set; } = null!;
         public DbSet<Slider> Sliders { get; set; } = null!;
         public DbSet<Blog> Blogs { get; set; } = null!;
+        public DbSet<SubscribeUsers> subscribeUsers { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
