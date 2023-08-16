@@ -20,6 +20,8 @@
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th>IsDeleted</th>
+
                                     <th>Image</th>
                                     <th>Name</th>
                                     <th>Description</th>
@@ -30,6 +32,8 @@
                                 @foreach (AdminEventViewModel Event in Model)
                                 {
                                     <tr>
+                                        <td>@Event.IsDeleted</td>
+
                                         <td><img src="~/assets/img/Event//@Event.Image" /></td>
                                         <td>@Event.Name</td>
                                         <td>@Event.Description</td>

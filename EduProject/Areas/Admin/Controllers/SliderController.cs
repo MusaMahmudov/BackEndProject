@@ -29,7 +29,7 @@ namespace EduProject.Areas.Admin.Controllers
         [Authorize(Roles = "Moderator,Admin")]
         public async Task<IActionResult> Index()
         {
-            var Sliders = await _context.Sliders.AsNoTracking().ToListAsync();
+            var Sliders = await _context.Sliders.IgnoreQueryFilters().OrderByDescending(s=>s.CreatedDate).AsNoTracking().ToListAsync();
             List<SliderViewModel> adminSliderViewModel = _mapper.Map<List<SliderViewModel>>(Sliders);
             return View(adminSliderViewModel);
         }
@@ -37,9 +37,9 @@ namespace EduProject.Areas.Admin.Controllers
         public IActionResult Detail(int Id)
         {
             var Slider = _context.Sliders.FirstOrDefault(x => x.Id == Id);
-            if (Slider == null)
+            if (Slider is null)
             {
-                return NotFound();
+                return BadRequest();
             }
             var detailSliderViewModel = _mapper.Map<DetailSliderViewModel>(Slider);
 

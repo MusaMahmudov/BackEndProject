@@ -34,7 +34,7 @@ namespace EduProject.Areas.Admin.Controllers
         
         public IActionResult Index()
         {
-            var courses = _context.Courses.AsNoTracking().ToList();
+            var courses = _context.Courses.IgnoreQueryFilters().OrderByDescending(c=>c.CreatedDate).AsNoTracking().ToList();
 
             var courseViewModel = _mapper.Map<List<CourseViewModel>>(courses);
 
@@ -121,7 +121,7 @@ namespace EduProject.Areas.Admin.Controllers
             var Course = await _context.Courses.Include(c => c.courseCategories).ThenInclude(c => c.Category).AsNoTracking().FirstOrDefaultAsync(c => c.Id == Id);
             if (Course is null)
             {
-                return View();
+                return BadRequest();
             }
             var detailCourseViewModel = _mapper.Map<DetailCourseViewModel>(Course);
             return View(detailCourseViewModel);

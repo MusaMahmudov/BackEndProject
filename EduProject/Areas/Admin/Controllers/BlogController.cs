@@ -30,7 +30,7 @@ namespace EduProject.Areas.Admin.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var Blogs = await _context.Blogs.AsNoTracking().OrderByDescending(b=>b.CreatedDate).ToListAsync();
+            var Blogs = await _context.Blogs.IgnoreQueryFilters().AsNoTracking().OrderByDescending(b=>b.CreatedDate).ToListAsync();
             var blogViewModel = _mapper.Map<List<BlogViewModel>>(Blogs);
             return View(blogViewModel);
         }
@@ -38,9 +38,9 @@ namespace EduProject.Areas.Admin.Controllers
         public IActionResult Detail(int Id)
         {
             var Blog = _context.Blogs.FirstOrDefault(x => x.Id == Id);
-            if (Blog == null)
+            if (Blog is null)
             {
-                return NotFound();
+                return BadRequest();
             }
             var detailSliderViewModel = _mapper.Map<AdminDetailBlogViewModel>(Blog);
 

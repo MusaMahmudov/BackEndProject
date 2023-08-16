@@ -19,6 +19,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th>IsDeleted</th>
                                     <th>Image</th>
                                     <th>Name</th>
                                     <th>Description</th>
@@ -29,6 +30,8 @@
                                 @foreach (CourseViewModel course in Model)
                                 {
                                     <tr>
+                                        <td>@course.IsDeleted</td>
+
                                         <td><img src="~/assets/img/course//@course.Image" /></td>
                                         <td>@course.Name</td>
                                         <td>@course.Description</td>

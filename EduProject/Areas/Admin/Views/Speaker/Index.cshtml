@@ -21,6 +21,8 @@
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th>IsDeleted</th>
+
                                     <th>Image</th>
                                     <th>Name</th>
                                     <th>Duty</th>
@@ -31,6 +33,8 @@
                                 @foreach (SpeakerViewModel speaker in Model)
                                 {
                                     <tr>
+                                        <td>@speaker.IsDeleted</td>
+
                                         <td><img src="~/assets/img/speaker//@speaker.Image" /></td>
                                         <td>@speaker.Name</td>
                                         <td>@speaker.Duty</td>

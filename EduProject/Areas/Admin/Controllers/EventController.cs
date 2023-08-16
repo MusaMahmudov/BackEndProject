@@ -39,7 +39,7 @@ namespace EduProject.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-            var Events = _context.Events.AsNoTracking().ToList();
+            var Events = _context.Events.IgnoreQueryFilters().OrderByDescending(e=>e.CreatedDate).AsNoTracking().ToList();
             
             var adminEventViewModel = _mapper.Map<List<AdminEventViewModel>>(Events);
             return View(adminEventViewModel);
@@ -148,7 +148,7 @@ namespace EduProject.Areas.Admin.Controllers
             var Event = await _context.Events.Include(e=>e.eventSpeakers).ThenInclude(e=>e.Speaker).AsNoTracking().FirstOrDefaultAsync(e=>e.Id==Id);
             if(Event is null)
             {
-                return View();
+                return BadRequest();
             }
             var DetailEventViewModel = _mapper.Map<AdminDetailEventViewModel>(Event);
             return View(DetailEventViewModel);

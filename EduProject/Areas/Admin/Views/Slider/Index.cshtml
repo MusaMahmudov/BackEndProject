@@ -16,6 +16,8 @@
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th>IsDeleted</th>
+
                                     <th>Image</th>
                                    
                                     <th>Title</th>
@@ -27,6 +29,8 @@
                                 @foreach (SliderViewModel slider in Model)
                                 {
                                     <tr>
+                                        <td>@slider.IsDeleted</td>
+
                                         <td><img src="~/assets/img/slider//@slider.Image" /></td>
                                         <td>@slider.Title</td>
                                         <td>@slider.Description</td>

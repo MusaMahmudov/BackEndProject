@@ -33,7 +33,7 @@ namespace EduProject.Areas.Admin.Controllers
         [Authorize(Roles = "Admin,Moderator")]
         public async Task<IActionResult> Index()
         {
-            var Speakers =await _context.Speakers.OrderByDescending(s=>s.CreatedDate).AsNoTracking().ToListAsync();
+            var Speakers =await _context.Speakers.IgnoreQueryFilters().OrderByDescending(s=>s.CreatedDate).AsNoTracking().ToListAsync();
 
             var speakerViewModel = _mapper.Map<List<SpeakerViewModel>>(Speakers);
 
@@ -119,7 +119,7 @@ namespace EduProject.Areas.Admin.Controllers
             var Speaker = await _context.Speakers.Include(e => e.eventSpeakers).ThenInclude(e => e.Event).AsNoTracking().FirstOrDefaultAsync(e => e.Id == Id);
             if (Speaker is null)
             {
-                return View();
+                return BadRequest();
             }
             var detailSpeakerViewModel = _mapper.Map<DetailSpeakerViewModel>(Speaker);
             return View(detailSpeakerViewModel);
