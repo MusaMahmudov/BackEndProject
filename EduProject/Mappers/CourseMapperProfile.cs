@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using EduProject.Areas.Admin.ViewModels.AdminCourseViewModels;
 using EduProject.Models;
+using EduProject.ViewModels.CourseViewModels;
 
 namespace EduProject.Mappers
 {
@@ -8,7 +9,15 @@ namespace EduProject.Mappers
     {
         public CourseMapperProfile() 
         {
-            CreateMap<Course, CourseViewModel>().ReverseMap();
+			CreateMap<Course, HomeCourseViewModel>().ReverseMap();
+            
+
+			CreateMap<Course, CourseViewModel>().ReverseMap();
+            CreateMap<Course, CoursePageViewModel>().ReverseMap();
+            CreateMap<Course, PageDetailCourseViewModel>().ForMember(cvc=>cvc.Category,x=>x.MapFrom(c=>c.courseCategories.Select(cvc=>cvc.Category)))
+                .ReverseMap();
+
+
             CreateMap<CreateCourseViewModel, Course>().ReverseMap();
             CreateMap<Course, DetailCourseViewModel>()
                 .ForMember(cvc=>cvc.Category,x=>x.MapFrom(c=>c.courseCategories.Select(cvc=>cvc.Category)))

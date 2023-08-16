@@ -41,8 +41,8 @@
                                 <p>By @Blog.CreatedBy  / @Blog.CreatedDate.Day   @CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(Blog.CreatedDate.Month), @Blog.CreatedDate.Year  /  <i class="fa fa-comments-o"></i> 4</p>
                             </div>
                             <div class="blog-bottom">
-                                <h2><a asp-action="Details">@Blog.Name </a></h2>
-                                <a asp-action="Details">read more</a>
+                                <h2><a asp-action="Details" asp-route-id="@Blog.Id">@Blog.Name </a></h2>
+                                <a asp-action="Details" asp-route-id="@Blog.Id">read more</a>
                             </div>
                         </div>
                     </div>

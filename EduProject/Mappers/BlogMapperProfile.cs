@@ -10,6 +10,8 @@ namespace EduProject.Mappers
         public BlogMapperProfile() 
         {
             CreateMap<Blog,BlogViewModel>().ReverseMap();
+            CreateMap<Blog, HomeBlogViewModel>().ReverseMap();
+
             CreateMap<Blog, DetailBlogViewModel>().ReverseMap();
             CreateMap<Blog, AdminDetailBlogViewModel>().ReverseMap();
             CreateMap<Blog, UpdateBlogViewModel>().ForMember(b=>b.Image,x=>x.Ignore())

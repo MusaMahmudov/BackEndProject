@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EduProject.Models;
 using NuGet.Common;
+using EduProject.ViewModels.CourseViewModels;
+using EduProject.ViewModels.BlogViewModels;
 
 namespace EduProject.Controllers
 {
@@ -30,12 +32,19 @@ namespace EduProject.Controllers
         }
         public IActionResult Index()
         {
-            var Event = _context.Events.AsNoTracking().ToList();
+            var Event = _context.Events.OrderByDescending(e=>e.CreatedDate).Take(4).AsNoTracking().ToList();
             List<EventViewModel> eventViewModel = _mapper.Map<List<EventViewModel>>(Event);
+            var courses = _context.Courses.OrderByDescending(c=>c.CreatedDate).Take(3).AsNoTracking().ToList();
+            List<HomeCourseViewModel> courseViewModel = _mapper.Map<List<HomeCourseViewModel>>(courses);
+            var blogs = _context.Blogs.OrderByDescending(b => b.CreatedDate).Take(3).AsNoTracking().ToList();
+            List<HomeBlogViewModel> blogViewModel = _mapper.Map<List<HomeBlogViewModel>>(blogs);
+
             HomeViewModel homeViewModel = new HomeViewModel()
             {
                 Sliders = _context.Sliders.AsNoTracking().ToList(),
-                Events = eventViewModel
+                Events = eventViewModel,
+                Courses = courseViewModel,
+                Blogs = blogViewModel,
             };
 
             return View(homeViewModel);
