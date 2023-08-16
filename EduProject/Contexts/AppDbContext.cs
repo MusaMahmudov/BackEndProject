@@ -23,6 +23,9 @@ namespace EduProject.Contexts
         public DbSet<Slider> Sliders { get; set; } = null!;
         public DbSet<Blog> Blogs { get; set; } = null!;
         public DbSet<SubscribeUsers> subscribeUsers { get; set; } = null!;
+        public DbSet<Course> Courses { get; set; } = null!;
+        public DbSet<Category> Category { get; set; } = null!;
+        public DbSet<CourseCategory> CourseCategories { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -30,6 +33,11 @@ namespace EduProject.Contexts
             builder.Entity<Blog>().HasQueryFilter(b=>b.IsDeleted == false);
             builder.Entity<Event>().HasQueryFilter(Event => Event.IsDeleted == false);
             builder.Entity<Speaker>().HasQueryFilter(Speaker => Speaker.IsDeleted == false);
+            builder.Entity<Course>().HasQueryFilter(Speaker => Speaker.IsDeleted == false);
+            builder.Entity<Category>().HasQueryFilter(Speaker => Speaker.IsDeleted == false);
+            builder.Entity<Teacher>().HasQueryFilter(Speaker => Speaker.IsDeleted == false);
+
+
 
             base.OnModelCreating(builder);
         }
