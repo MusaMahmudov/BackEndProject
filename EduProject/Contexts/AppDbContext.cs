@@ -33,9 +33,11 @@ namespace EduProject.Contexts
             builder.Entity<Blog>().HasQueryFilter(b=>b.IsDeleted == false);
             builder.Entity<Event>().HasQueryFilter(Event => Event.IsDeleted == false);
             builder.Entity<Speaker>().HasQueryFilter(Speaker => Speaker.IsDeleted == false);
-            builder.Entity<Course>().HasQueryFilter(Speaker => Speaker.IsDeleted == false);
-            builder.Entity<Category>().HasQueryFilter(Speaker => Speaker.IsDeleted == false);
-            builder.Entity<Teacher>().HasQueryFilter(Speaker => Speaker.IsDeleted == false);
+            builder.Entity<Course>().HasQueryFilter(Course => Course.IsDeleted == false);
+            builder.Entity<Category>().HasQueryFilter(Category => Category.IsDeleted == false);
+            builder.Entity<Teacher>().HasQueryFilter(Teacher => Teacher.IsDeleted == false);
+            builder.Entity<Skill>().HasQueryFilter(Skill => Skill.IsDeleted == false);
+
 
 
 

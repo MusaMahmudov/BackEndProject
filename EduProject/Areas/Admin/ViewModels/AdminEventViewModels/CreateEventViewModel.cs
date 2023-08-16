@@ -9,7 +9,7 @@
         public string Time { get; set; }
         public string Venue { get; set; }
         public string Date { get; set; }
-        public List<int> SpeakerId { get; set; }
+        public List<int>? SpeakerId { get; set; }
         
 
 

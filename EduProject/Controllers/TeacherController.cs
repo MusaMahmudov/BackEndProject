@@ -24,13 +24,17 @@ namespace EduProject.Controllers
         }
         public async Task<IActionResult> Details(int Id)
         {
-            var teacher =  _context.Teachers.Include(t=>t.TeacherSkill).ThenInclude(t=>t.Skill).FirstOrDefaultAsync(t=>t.Id == Id);
+            var teacher =await  _context.Teachers.Include(t=>t.TeacherSkill).ThenInclude(t=>t.Skill).FirstOrDefaultAsync(t=>t.Id == Id);
+            var teacherSkill = _context.TeacherSkill.Where(t=>t.TeacherId == Id).ToList();
             if (teacher is null)
             {
                 return NotFound();
             }
             var detailTeacherViewModel = _mapper.Map<DetailTeacherViewModel>(teacher);
-
+            for(int i = 0;i< teacherSkill.Count(); i++)
+            {
+                detailTeacherViewModel.Percent[i]=teacherSkill[i].Percent;
+            }
 
 
 

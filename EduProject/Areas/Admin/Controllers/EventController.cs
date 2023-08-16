@@ -97,19 +97,24 @@ namespace EduProject.Areas.Admin.Controllers
 
             newEvent.Image = FileName;
             
-            List<EventSpeaker> speakers = new List<EventSpeaker>();
-            for(int i = 0;i  < createEventViewModel.SpeakerId.Count(); i++)
-            {
-                EventSpeaker eventSpeaker = new EventSpeaker()
-                {
-                    
-                    SpeakerId = createEventViewModel.SpeakerId[i],
-                    EventId = newEvent.Id,
-                };
 
-                speakers.Add(eventSpeaker);
-            }
-            newEvent.eventSpeakers = speakers;
+            if(createEventViewModel.SpeakerId is not null)
+            {
+				List<EventSpeaker> speakers = new List<EventSpeaker>();
+				for (int i = 0; i < createEventViewModel.SpeakerId.Count(); i++)
+				{
+					EventSpeaker eventSpeaker = new EventSpeaker()
+					{
+
+						SpeakerId = createEventViewModel.SpeakerId[i],
+						EventId = newEvent.Id,
+					};
+
+					speakers.Add(eventSpeaker);
+				}
+				newEvent.eventSpeakers = speakers;
+			}
+           
             await _context.Events.AddAsync(newEvent);
 
             foreach (var subscribe in _context.subscribeUsers)

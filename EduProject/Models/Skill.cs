@@ -2,7 +2,7 @@
 
 namespace EduProject.Models
 {
-    public class Skill : BaseEntity
+    public class Skill : BaseSectionEntity
     {
         public string Name {  get; set; }
         public ICollection<TeacherSkill> TeacherSkill { get; set; }

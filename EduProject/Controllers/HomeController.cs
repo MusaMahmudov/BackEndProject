@@ -55,8 +55,8 @@ namespace EduProject.Controllers
                 }
                 if(await _context.subscribeUsers.FirstOrDefaultAsync(u=>u.Email == user.Email) is not null)
                 {
-                    ModelState.AddModelError("", "Email already exists");
-                    return RedirectToAction("Index");
+                    
+                    return RedirectToAction(nameof(Error));
                 }
                     
 
@@ -89,8 +89,7 @@ namespace EduProject.Controllers
                
                 if (await _context.subscribeUsers.FirstOrDefaultAsync(u => u.Email == email) is not null)
                 {
-                    ModelState.AddModelError("", "Email already exists");
-                    return RedirectToAction("Index");
+                    return RedirectToAction(nameof(Error));
                 }
               
 
@@ -140,6 +139,10 @@ namespace EduProject.Controllers
            await _context.SaveChangesAsync();
 
             return Ok("Success");
+        }
+        public IActionResult Error()
+        {
+            return View();
         }
     }
 }

@@ -92,20 +92,23 @@ namespace EduProject.Areas.Admin.Controllers
             }
 
             newCourse.Image = FileName;
-
-            List<CourseCategory> categories = new List<CourseCategory>();
-            for (int i = 0; i < createCourseViewModel.CategoryId.Count(); i++)
+            if(createCourseViewModel.CategoryId is not null)
             {
-                CourseCategory courseCategory = new CourseCategory()
-                {
+				List<CourseCategory> categories = new List<CourseCategory>();
+				for (int i = 0; i < createCourseViewModel.CategoryId.Count(); i++)
+				{
+					CourseCategory courseCategory = new CourseCategory()
+					{
 
-                    CategoryId = createCourseViewModel.CategoryId[i],
-                    CourseId = newCourse.Id,
-                };
+						CategoryId = createCourseViewModel.CategoryId[i],
+						CourseId = newCourse.Id,
+					};
 
-                categories.Add(courseCategory);
-            }
-            newCourse.courseCategories = categories;
+					categories.Add(courseCategory);
+				}
+				newCourse.courseCategories = categories;
+			}
+          
             await _context.Courses.AddAsync(newCourse);
 
             await _context.SaveChangesAsync();

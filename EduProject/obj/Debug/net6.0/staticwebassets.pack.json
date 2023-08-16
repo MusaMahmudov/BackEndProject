@@ -609,6 +609,10 @@
       "PackagePath": "staticwebassets\\assets\\img\\contact\\contact3.png"
     },
     {
+      "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\course\\32dc2e36-f6ed-40eb-a6d8-fb34a35def4f-Barbie.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\course\\32dc2e36-f6ed-40eb-a6d8-fb34a35def4f-Barbie.jpg"
+    },
+    {
       "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\course\\a01752bf-a1ca-4c35-b626-3680ee4364be-course2.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\course\\a01752bf-a1ca-4c35-b626-3680ee4364be-course2.jpg"
     },
@@ -671,6 +675,18 @@
     {
       "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\event\\4968752c-3c0c-4227-ac2b-dd22d4a13838-event13.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\event\\4968752c-3c0c-4227-ac2b-dd22d4a13838-event13.jpg"
+    },
+    {
+      "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\event\\8fa0fc4e-2842-4c2e-83d8-1d209989e2f1-Хасбулла.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\event\\8fa0fc4e-2842-4c2e-83d8-1d209989e2f1-Хасбулла.jpg"
+    },
+    {
+      "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\event\\cd143fe8-4d4f-470a-a3c2-e46f7b2be2f1-Tosu.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\event\\cd143fe8-4d4f-470a-a3c2-e46f7b2be2f1-Tosu.jpg"
+    },
+    {
+      "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\event\\eb4eaf68-afb1-4ddf-873e-7dadf9e61b49-Tosu.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\event\\eb4eaf68-afb1-4ddf-873e-7dadf9e61b49-Tosu.jpg"
     },
     {
       "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\event\\event-details.jpg",
@@ -799,6 +815,10 @@
     {
       "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\speaker\\26762fc8-a158-4f40-b266-487d37c25670-Tosu.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\speaker\\26762fc8-a158-4f40-b266-487d37c25670-Tosu.jpg"
+    },
+    {
+      "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\speaker\\79d009f8-2d66-4f62-8d55-2342499b0932-Memmed aga.jpeg",
+      "PackagePath": "staticwebassets\\assets\\img\\speaker\\79d009f8-2d66-4f62-8d55-2342499b0932-Memmed aga.jpeg"
     },
     {
       "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\speaker\\8b07c8c0-abe0-4edc-95b8-effe521d3fd8-Memmed aga.jpeg",

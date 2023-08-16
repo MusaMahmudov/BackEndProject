@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewData["Title"] = "Create Teacher";
+}
+
+@using EduProject.Areas.Admin.ViewModels.AdminTeacherViewModel;
+@model CreateTeacherViewModel
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create Teacher</h4>
+
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="exampleInputUsername1">Image</label>
+                    <input asp-for="Image" class="form-control" placeholder="Image">
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Name</label>
+                    <input asp-for="Name" class="form-control" placeholder="Name">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputConfirmPassword1">Description</label>
+                    <input asp-for="Description" class="form-control" placeholder="Description">
+                    <span asp-validation-for="Description" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputConfirmPassword1">Rank</label>
+                    <input asp-for="Rank" class="form-control" placeholder="Rank">
+                    <span asp-validation-for="Rank" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputConfirmPassword1">Degree</label>
+                    <input asp-for="Degree" class="form-control" placeholder="Degree">
+                    <span asp-validation-for="Degree" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputConfirmPassword1">Experience</label>
+                    <input asp-for="Experience" class="form-control" placeholder="Experience">
+                    <span asp-validation-for="Experience" class="text-danger"></span>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputConfirmPassword1">Speaker</label>
+                    <select asp-for="SkillId" asp-items="ViewBag.Skills" multiple="multiple">Select Skill</select>
+                </div>
+
+
+
+                <button type="submit" asp-action="Create" class="btn btn-primary mr-2">Submit</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
