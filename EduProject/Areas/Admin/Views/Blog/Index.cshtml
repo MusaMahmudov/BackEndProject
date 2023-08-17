@@ -38,7 +38,7 @@
                                         <td><a class="btn btn-primary" asp-action="Detail" asp-route-id="@blog.Id">Detail</a></td>
                                         <td><a class="btn btn-warning" asp-action="Update" asp-route-id="@blog.Id">Update</a></td>
 
-                                        <td><a class="btn btn-danger @(Model.Count() <= 3 ? "disabled" : "")" asp-action="Delete" asp-route-id="@blog.Id">Delete</a></td>
+                                        <td><a class="btn btn-danger @(Model.Count() <= 3 || blog.IsDeleted ? "disabled" : "")" asp-action="Delete" asp-route-id="@blog.Id">Delete</a></td>
 
 
 

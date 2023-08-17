@@ -26,6 +26,10 @@ namespace EduProject.Contexts
         public DbSet<Course> Courses { get; set; } = null!;
         public DbSet<Category> Category { get; set; } = null!;
         public DbSet<CourseCategory> CourseCategories { get; set; } = null!;
+        public DbSet<Setting> Settings { get; set; } = null!;
+        public DbSet<SocialMedia> SocialMedias { get; set; } = null!;
+
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -37,6 +41,8 @@ namespace EduProject.Contexts
             builder.Entity<Category>().HasQueryFilter(Category => Category.IsDeleted == false);
             builder.Entity<Teacher>().HasQueryFilter(Teacher => Teacher.IsDeleted == false);
             builder.Entity<Skill>().HasQueryFilter(Skill => Skill.IsDeleted == false);
+            builder.Entity<SocialMedia>().HasQueryFilter(socialMedia => socialMedia.IsDeleted == false);
+
 
 
 

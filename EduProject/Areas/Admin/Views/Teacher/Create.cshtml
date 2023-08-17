@@ -49,8 +49,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleInputConfirmPassword1">Speaker</label>
-                    <select asp-for="SkillId" asp-items="ViewBag.Skills" multiple="multiple">Select Skill</select>
+                    <label for="Skills">Skills</label>
+                    <select asp-items="@ViewBag.Skills" asp-for="SkillId" ></select>
                 </div>
 
 

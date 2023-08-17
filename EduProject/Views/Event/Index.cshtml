@@ -1,25 +1,12 @@
 ﻿
 @{
-    ViewData["Title"] = "Event";
+    ViewData["Title"] = "Events";
 }
 @using EduProject.ViewModels.EventViewModels;
 @model IEnumerable<EventViewModel>
 <!-- Banner Area Start -->
-<div class="banner-area-wrapper">
-    <div class="banner-area text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="banner-content-wrapper">
-                        <div class="banner-content">
-                            <h2>event</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+@await Component.InvokeAsync("Banner");
+
 <!-- Banner Area End -->
 <!-- Event Start -->
 <div class="event-area three text-center pt-150 pb-150">

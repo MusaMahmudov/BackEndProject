@@ -340,6 +340,27 @@ namespace EduProject.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("EduProject.Models.Setting", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Key")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Settings");
+                });
+
             modelBuilder.Entity("EduProject.Models.Skill", b =>
                 {
                     b.Property<int>("Id")
@@ -414,6 +435,49 @@ namespace EduProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Sliders");
+                });
+
+            modelBuilder.Entity("EduProject.Models.SocialMedia", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Icon")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("TeacherId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UpdatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("value")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TeacherId");
+
+                    b.ToTable("SocialMedias");
                 });
 
             modelBuilder.Entity("EduProject.Models.Speaker", b =>
@@ -746,6 +810,17 @@ namespace EduProject.Migrations
                     b.Navigation("Speaker");
                 });
 
+            modelBuilder.Entity("EduProject.Models.SocialMedia", b =>
+                {
+                    b.HasOne("EduProject.Models.Teacher", "Teacher")
+                        .WithMany("socialMedia")
+                        .HasForeignKey("TeacherId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Teacher");
+                });
+
             modelBuilder.Entity("EduProject.Models.TeacherSkill", b =>
                 {
                     b.HasOne("EduProject.Models.Skill", "Skill")
@@ -844,6 +919,8 @@ namespace EduProject.Migrations
             modelBuilder.Entity("EduProject.Models.Teacher", b =>
                 {
                     b.Navigation("TeacherSkill");
+
+                    b.Navigation("socialMedia");
                 });
 #pragma warning restore 612, 618
         }

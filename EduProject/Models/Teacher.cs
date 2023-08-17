@@ -16,6 +16,7 @@ namespace EduProject.Models
         public string PhoneNumber {  get; set; }
         public string Skype { get; set; }
         public ICollection<TeacherSkill> TeacherSkill { get; set; }
+        public ICollection<SocialMedia>? socialMedia { get; set; }
 
     }
 }

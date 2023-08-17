@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+
+@using EduProject.Areas.Admin.ViewModels.AdminSocialMediaViewModels;
+@model CreateSocialMediaViewModel
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create Event</h4>
+
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+               
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Icon</label>
+                    <input asp-for="Icon" class="form-control" placeholder="Icon">
+                    <span asp-validation-for="Icon" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputConfirmPassword1">Value</label>
+                    <input asp-for="Value" class="form-control" placeholder="Value">
+                    <span asp-validation-for="Value" class="text-danger"></span>
+
+                </div>
+                
+             
+
+                <div class="form-group">
+                    <label for="exampleInputConfirmPassword1">Teacher</label>
+                    <select asp-for="TeacherId" asp-items="ViewBag.Teachers" >Select Teacher</select>
+                </div>
+
+
+
+                <button type="submit" asp-action="Create" class="btn btn-primary mr-2">Submit</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+

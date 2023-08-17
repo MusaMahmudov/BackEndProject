@@ -36,8 +36,8 @@
                                         <td>@slider.Description</td>
                                         <td><a class="btn btn-primary" asp-action="Detail" asp-route-id="@slider.Id">Detail</a></td>
                                         <td><a class="btn btn-warning" asp-action="Update" asp-route-id="@slider.Id">Update</a></td>
-                                        
-                                            <td><a class="btn btn-danger @(Model.Count() <= 1 ? "disabled" : "")" asp-action="Delete" asp-route-id="@slider.Id">Delete</a></td>
+
+                                        <td><a class="btn btn-danger @(Model.Count() <= 1 || slider.IsDeleted ? "disabled" : "")" asp-action="Delete" asp-route-id="@slider.Id">Delete</a></td>
 
                                         
 

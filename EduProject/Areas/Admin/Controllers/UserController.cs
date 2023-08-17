@@ -1,7 +1,11 @@
 ﻿using AutoMapper;
+using EduProject.Areas.Admin.ViewModels.AdminCourseViewModels;
 using EduProject.Areas.Admin.ViewModels.UserViewModels;
 using EduProject.Contexts;
+using EduProject.Exceptions;
+using EduProject.Models;
 using EduProject.Models.Identity;
+using EduProject.Services.Implemantations;
 using EduProject.Services.Intefaces;
 using EduProject.Utils.Enums;
 using EduProject.ViewModels;
@@ -26,6 +30,7 @@ namespace EduProject.Areas.Admin.Controllers
         private readonly IMapper _mapper;
         private readonly IMailService _mailService;
         private readonly IWebHostEnvironment _webHostEnvironment;
+
         public UserController(AppDbContext context,UserManager<AppUser> userManager,RoleManager<IdentityRole> roleManager,IMapper mapper,IMailService mailService,IWebHostEnvironment webHostEnvironment)
         {
             _webHostEnvironment = webHostEnvironment;
@@ -74,8 +79,8 @@ namespace EduProject.Areas.Admin.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ChangeRole(string Id)
         {
-            ViewBag.Roles = new SelectList(await _context.Roles.ToListAsync(),"Id","Name");
-           
+            ViewBag.Roles = new SelectList(await _context.Roles.ToListAsync(), "Id", "Name");
+
 
             var User = await _context.Users.AsNoTracking().FirstOrDefaultAsync(u => u.Id == Id);
             if (User is null)
@@ -87,20 +92,20 @@ namespace EduProject.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> ChangeRole(ChangeUserViewModel changeUserViewModel,string Id)
+        public async Task<IActionResult> ChangeRole(ChangeUserViewModel changeUserViewModel, string Id)
         {
             ViewBag.Roles = new SelectList(await _context.Roles.ToListAsync(), "Id", "Name");
 
             if (changeUserViewModel is null) return BadRequest();
 
-            var userRole = await _context.UserRoles.FirstOrDefaultAsync(ur=>ur.UserId == Id);
+            var userRole = await _context.UserRoles.FirstOrDefaultAsync(ur => ur.UserId == Id);
 
-            if(userRole is null)
+            if (userRole is null)
             {
                 return NotFound();
             }
             _context.UserRoles.Remove(userRole);
-           await _context.UserRoles.AddAsync(new IdentityUserRole<string> { UserId = userRole.UserId,RoleId = changeUserViewModel.RoleId});
+            await _context.UserRoles.AddAsync(new IdentityUserRole<string> { UserId = userRole.UserId, RoleId = changeUserViewModel.RoleId });
 
             await _context.SaveChangesAsync();
 
@@ -229,6 +234,58 @@ namespace EduProject.Areas.Admin.Controllers
             string result = await streamReader.ReadToEndAsync();
             return result.Replace("[link]", link);
 
+
+        }
+        public async Task<IActionResult> Update(string Id)
+        {
+           
+            var User = await _context.Users.FirstOrDefaultAsync(u => u.Id == Id);
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            if (User is null)
+            {
+                return NotFound();
+            }
+            var updateUserViewModel = _mapper.Map<UpdateUserViewModel>(User);
+
+
+            return View(updateUserViewModel);
+
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Moderator,Admin")]
+        public async Task<IActionResult> Update(UpdateUserViewModel updateUserViewModel, string Id)
+        {
+           
+            var User = await _context.Users.FirstOrDefaultAsync(c => c.Id == Id);
+            User.NormalizedUserName = updateUserViewModel.UserName.ToUpper();
+            User.NormalizedEmail = updateUserViewModel.Email.ToUpper();
+
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            if (User is null)
+            {
+                return NotFound();
+            }
+
+
+
+
+
+
+            User = _mapper.Map(updateUserViewModel, User);
+
+
+            _context.Users.Update(User);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
 
         }
 
