@@ -31,7 +31,8 @@
                                 @foreach (AdminTeacherViewModel teacher in Model)
                                 {
                                     <tr>
-                                        <td>@teacher.IsDeleted</td>
+                                    
+                                        <td>  <a class="btn btn-@( teacher.IsDeleted ? "danger" : "success") ">>@teacher.IsDeleted</a></td>
 
                                         <td><img src="~/assets/img/teacher//@teacher.Image" /></td>
                                         <td>@teacher.Name</td>

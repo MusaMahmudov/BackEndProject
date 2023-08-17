@@ -2400,6 +2400,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\contact\contact3.png))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\course\080a5530-a1a7-4f72-ac69-93c1ee8242a1-8fa0fc4e-2842-4c2e-83d8-1d209989e2f1-Хасбулла.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>EduProject</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/EduProject</BasePath>
+      <RelativePath>assets/img/course/080a5530-a1a7-4f72-ac69-93c1ee8242a1-8fa0fc4e-2842-4c2e-83d8-1d209989e2f1-Хасбулла.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\course\080a5530-a1a7-4f72-ac69-93c1ee8242a1-8fa0fc4e-2842-4c2e-83d8-1d209989e2f1-Хасбулла.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\course\32dc2e36-f6ed-40eb-a6d8-fb34a35def4f-Barbie.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>EduProject</SourceId>
@@ -2688,6 +2704,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\event\8fa0fc4e-2842-4c2e-83d8-1d209989e2f1-Хасбулла.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\event\be9515e5-3180-4cb6-a2a6-d7605e192eb2-8fa0fc4e-2842-4c2e-83d8-1d209989e2f1-Хасбулла.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>EduProject</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/EduProject</BasePath>
+      <RelativePath>assets/img/event/be9515e5-3180-4cb6-a2a6-d7605e192eb2-8fa0fc4e-2842-4c2e-83d8-1d209989e2f1-Хасбулла.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\event\be9515e5-3180-4cb6-a2a6-d7605e192eb2-8fa0fc4e-2842-4c2e-83d8-1d209989e2f1-Хасбулла.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\event\cd143fe8-4d4f-470a-a3c2-e46f7b2be2f1-Tosu.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>EduProject</SourceId>
@@ -2703,6 +2735,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\event\cd143fe8-4d4f-470a-a3c2-e46f7b2be2f1-Tosu.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\event\cffa94f2-ef55-47c2-871d-e4d3a1e39627-be9515e5-3180-4cb6-a2a6-d7605e192eb2-8fa0fc4e-2842-4c2e-83d8-1d209989e2f1-Хасбулла.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>EduProject</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/EduProject</BasePath>
+      <RelativePath>assets/img/event/cffa94f2-ef55-47c2-871d-e4d3a1e39627-be9515e5-3180-4cb6-a2a6-d7605e192eb2-8fa0fc4e-2842-4c2e-83d8-1d209989e2f1-Хасбулла.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\event\cffa94f2-ef55-47c2-871d-e4d3a1e39627-be9515e5-3180-4cb6-a2a6-d7605e192eb2-8fa0fc4e-2842-4c2e-83d8-1d209989e2f1-Хасбулла.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\event\eb4eaf68-afb1-4ddf-873e-7dadf9e61b49-Tosu.jpg))">
       <SourceType>Package</SourceType>

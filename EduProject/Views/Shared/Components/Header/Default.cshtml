@@ -25,8 +25,19 @@
                         else
                         {
                             <ul>
-                                <li class="text-danger"><a href="#">@User.Identity.Name</a></li>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li class="text-danger"><a asp-action="Index" asp-controller="Admin">@User.Identity.Name</a></li>
+                                }
+                                else
+                                {
+                                    <li class="text-danger"><a href="#">@User.Identity.Name</a></li>
+                                }
                                 <li><a asp-action="Logout" asp-controller="Auth">Logout</a></li>
+
+
+
+
                             </ul>
                         }
 

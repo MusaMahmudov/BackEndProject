@@ -9,7 +9,7 @@ namespace EduProject.Mappers
 	{
 	public TeacherMapperProfile() 
 		{
-			CreateMap<Teacher, TeacherViewModel>().ReverseMap();
+			CreateMap<Teacher, TeacherViewModel>().ForMember(tvc => tvc.socialMedia, x => x.MapFrom(t => t.socialMedia)).ReverseMap();
 			CreateMap<Teacher,	DetailTeacherViewModel>()
 				.ForMember(tvc => tvc.SkillNames,x=> x.MapFrom(t=> t.TeacherSkill.Select(tp=>tp.Skill.Name)))
                 .ForMember(tvc => tvc.Percent, x => x.MapFrom(t => t.TeacherSkill.Select(tp => tp.Percent)))

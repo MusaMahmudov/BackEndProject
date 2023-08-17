@@ -1,4 +1,5 @@
-﻿using EduProject.Models.Common;
+﻿using EduProject.Models;
+using EduProject.Models.Common;
 
 namespace EduProject.ViewModels.TeacherViewModels
 {
@@ -7,5 +8,6 @@ namespace EduProject.ViewModels.TeacherViewModels
 		public string Name { get; set; }
 		public string Rank { get; set; }
 		public string Image { get; set; }
+		public List<SocialMedia> socialMedia { get; set; }
 	}
 }

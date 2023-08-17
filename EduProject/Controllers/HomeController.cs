@@ -67,21 +67,15 @@ namespace EduProject.Controllers
                     
                     return RedirectToAction(nameof(Error));
                 }
-                    
 
 
-                var Token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                string link = Url.Action("Success", "Home", new { token = Token, Email = user.Email }, HttpContext.Request.Scheme);
-                string body = await GetEmailTemplateAsync(link);
 
-                MailRequest mailRequest = new MailRequest()
+                SubscribeUsers subscribeUser = new SubscribeUsers()
                 {
-                    Subject = "subscribe confirm",
-                    ToEmail = user.Email,
-                    Body = body
-
+                    Email = user.Email,
                 };
-                await _mailService.SendEMailAsync(mailRequest);
+                await _context.subscribeUsers.AddAsync(subscribeUser);
+                await _context.SaveChangesAsync();
 
             }
 
