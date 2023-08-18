@@ -31,6 +31,7 @@ namespace EduProject.Contexts
 
 
 
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Slider>().HasQueryFilter(s=>s.IsDeleted == false);
@@ -42,6 +43,8 @@ namespace EduProject.Contexts
             builder.Entity<Teacher>().HasQueryFilter(Teacher => Teacher.IsDeleted == false);
             builder.Entity<Skill>().HasQueryFilter(Skill => Skill.IsDeleted == false);
             builder.Entity<SocialMedia>().HasQueryFilter(socialMedia => socialMedia.IsDeleted == false);
+            builder.Entity<Setting>().HasQueryFilter(setting => setting.IsDeleted == false);
+
 
 
 

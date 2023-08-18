@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\musafm\\Desktop\\BackEndProject\\EduProject\\EduProject.csproj": {}
+    "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\EduProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\musafm\\Desktop\\BackEndProject\\EduProject\\EduProject.csproj": {
+    "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\EduProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\musafm\\Desktop\\BackEndProject\\EduProject\\EduProject.csproj",
+        "projectUniqueName": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\EduProject.csproj",
         "projectName": "EduProject",
-        "projectPath": "C:\\Users\\musafm\\Desktop\\BackEndProject\\EduProject\\EduProject.csproj",
-        "packagesPath": "C:\\Users\\musafm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\musafm\\Desktop\\BackEndProject\\EduProject\\obj\\",
+        "projectPath": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\EduProject.csproj",
+        "packagesPath": "C:\\Users\\binch\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\musafm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\binch\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -98,7 +100,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
