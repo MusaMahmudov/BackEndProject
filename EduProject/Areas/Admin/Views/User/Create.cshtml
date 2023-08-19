@@ -44,7 +44,11 @@
                     <span asp-validation-for="confirmPassword" class="text-danger"></span>
 
                 </div>
+                <div class="login-toggle-btn">
+                    <input asp-for="TwoFactorEnabled" id="TwoFactorEnabled">
+                    <label for="TwoFactorEnabled">Two Factor Authentication</label>
 
+                </div>
                 <button type="submit" asp-action="Create" class="btn btn-primary mr-2">Submit</button>
 
             </form>

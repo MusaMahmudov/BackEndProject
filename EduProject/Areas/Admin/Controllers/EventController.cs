@@ -97,10 +97,7 @@ namespace EduProject.Areas.Admin.Controllers
 
             newEvent.Image = FileName;
             
-
-            if(createEventViewModel.SpeakerId is not null)
-            {
-				List<EventSpeaker> speakers = new List<EventSpeaker>();
+            List<EventSpeaker> speakers = new List<EventSpeaker>();
 				for (int i = 0; i < createEventViewModel.SpeakerId.Count(); i++)
 				{
 					EventSpeaker eventSpeaker = new EventSpeaker()
@@ -113,7 +110,7 @@ namespace EduProject.Areas.Admin.Controllers
 					speakers.Add(eventSpeaker);
 				}
 				newEvent.eventSpeakers = speakers;
-			}
+			
            
             await _context.Events.AddAsync(newEvent);
 

@@ -25,7 +25,7 @@
                             <li><span>time : </span>@Model.Time</li>
                             <li><span>venue : </span>@Model.Venue</li>
                         </ul>
-                        <p>@Model.Description </p>
+                       @Html.Raw(Model.Description)
                       
                         <div class="speakers-area fix">
                             <h4>speakers</h4>

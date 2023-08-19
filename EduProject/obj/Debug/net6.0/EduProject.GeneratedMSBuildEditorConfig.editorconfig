@@ -100,14 +100,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRXZlbnRcVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Areas/Admin/Views/Setting/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2V0dGluZ1xDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Areas/Admin/Views/Setting/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2V0dGluZ1xEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Areas/Admin/Views/Setting/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2V0dGluZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -256,6 +248,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Views/Auth/LoginTwoStep.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpblR3b1N0ZXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Views/Auth/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -282,6 +278,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Views/Course/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Views/Course/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Views/Course/Filter.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXEZpbHRlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/binch/OneDrive/Рабочий стол/BackEndProject/EduProject/Views/Course/Index.cshtml]

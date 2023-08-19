@@ -14,16 +14,16 @@
 
                     <div class="table-responsive">
 
-                        <a class="btn btn-primary" asp-action="create">Create</a>
+                     
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>IsDeleted</th>
+                                  
 
                                     <th>Image</th>
                                     <th>Name</th>
                                     <th>Description</th>
-                                    <th>Actions</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -36,10 +36,10 @@
                                         <td>@setting.Key</td>
                                         <td>@setting.Value</td>
 
-                                        <td><a class="btn btn-primary" asp-action="Details" asp-route-id="@setting.Id">Detail</a></td>
+                                       
                                         <td><a class="btn btn-warning" asp-action="Update" asp-route-id="@setting.Id">Update</a></td>
 
-                                        <td><a class="btn btn-danger @(Model.Count() <= 3 || setting.IsDeleted ? "disabled" : "")" asp-action="Delete" asp-route-id="@setting.Id">Delete</a></td>
+                                        
 
 
 

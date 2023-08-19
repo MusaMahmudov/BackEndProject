@@ -14,7 +14,8 @@
 
             <img src="~/assets/img/slider//@Model.Image" style="width:25%" />
             <h1>Title:@Model.Title</h1>
-            <h1>Description:@Model.Description</h1>
+            Description: @Html.Raw(Model.Description)
+
             <h1>CreatedBy:@Model.CreatedBy</h1>
             <h1>CreatedTime:@Model.CreatedDate</h1>
             <h1>UpdatedBy:@Model.UpdatedBy</h1>

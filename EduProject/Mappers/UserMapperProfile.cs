@@ -9,7 +9,8 @@ namespace EduProject.Mappers
     {
         public UserMapperProfile() 
         {
-            CreateMap<CreateUserViewModel, AppUser>().ReverseMap();
+            CreateMap<CreateUserViewModel, AppUser>()
+                .ReverseMap();
             CreateMap<AppUser, UpdateUserViewModel>().ReverseMap();
 
 

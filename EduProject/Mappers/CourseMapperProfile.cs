@@ -17,6 +17,11 @@ namespace EduProject.Mappers
             CreateMap<Course, PageDetailCourseViewModel>().ForMember(cvc=>cvc.Category,x=>x.MapFrom(c=>c.courseCategories.Select(cvc=>cvc.Category)))
                 .ReverseMap();
 
+            CreateMap<CourseCategory, FilterCourseViewModel>().ForMember(fvm=>fvm.Id,x=>x.MapFrom(cc=>cc.CourseId))
+                .ForMember(fvm => fvm.Image, x => x.MapFrom(cc => cc.Course.Image))
+                .ForMember(fvm => fvm.Name, x => x.MapFrom(cc => cc.Course.Name))
+                .ForMember(fvm => fvm.Description, x => x.MapFrom(cc => cc.Course.Description))
+                .ReverseMap();
 
             CreateMap<CreateCourseViewModel, Course>().ReverseMap();
             CreateMap<Course, DetailCourseViewModel>()

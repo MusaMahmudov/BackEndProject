@@ -15,5 +15,6 @@ namespace EduProject.ViewModels.CourseViewModels
         public int Students { get; set; }
         public string Assestment { get; set; }
         public List<Category> Category { get; set; }
+        public List<Category> AllCategory { get; set; }
     }
 }

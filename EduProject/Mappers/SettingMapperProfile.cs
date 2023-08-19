@@ -10,8 +10,7 @@ namespace EduProject.Mappers
         public SettingMapperProfile() 
         {
          CreateMap<Setting,UpdateSettingViewModel>().ReverseMap();
-            CreateMap<CreateSettingViewModel, Setting>().ReverseMap();
-            CreateMap<Setting, DeleteSettingViewModel>().ReverseMap();
+  
 
 
         }

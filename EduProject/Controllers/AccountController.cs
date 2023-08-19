@@ -57,7 +57,6 @@ namespace EduProject.Controllers
 
 
             var newUser =  _mapper.Map<AppUser>(createUserViewModel);
-            newUser.IsActive = true;
             if(newUser is null)
             {
                 return BadRequest();
@@ -73,9 +72,8 @@ namespace EduProject.Controllers
                     
                 }
                 return View();
-
-
             }
+            
             var Token =await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
             var Link = Url.Action("ConfirmEmail","Account",new { email = createUserViewModel.Email ,token = Token  },HttpContext.Request.Scheme);
             var body =await GetEmailTemplate(Link);
@@ -102,7 +100,8 @@ namespace EduProject.Controllers
                 return NotFound();
             }
 
-          IdentityResult identityResult = await _userManager.ConfirmEmailAsync(User,token);
+
+            IdentityResult identityResult = await _userManager.ConfirmEmailAsync(User,token);
             if (!identityResult.Succeeded)
             {
                foreach(var error in identityResult.Errors)
@@ -110,6 +109,10 @@ namespace EduProject.Controllers
                     return BadRequest();
                 }
             }
+            User.IsActive = true;
+             _context.Users.Update(User);
+            await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Success));
 
 

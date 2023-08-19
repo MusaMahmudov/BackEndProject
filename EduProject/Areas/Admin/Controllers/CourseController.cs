@@ -92,8 +92,7 @@ namespace EduProject.Areas.Admin.Controllers
             }
 
             newCourse.Image = FileName;
-            if(createCourseViewModel.CategoryId is not null)
-            {
+            
 				List<CourseCategory> categories = new List<CourseCategory>();
 				for (int i = 0; i < createCourseViewModel.CategoryId.Count(); i++)
 				{
@@ -107,7 +106,7 @@ namespace EduProject.Areas.Admin.Controllers
 					categories.Add(courseCategory);
 				}
 				newCourse.courseCategories = categories;
-			}
+			
           
             await _context.Courses.AddAsync(newCourse);
 

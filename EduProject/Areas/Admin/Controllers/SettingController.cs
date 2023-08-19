@@ -48,18 +48,20 @@ namespace EduProject.Areas.Admin.Controllers
             {
                 return View();
             }
-            var checkUpdate = await _context.Settings.Where(s => s.Key == updateSettingViewModel.Key).ToListAsync();
-            if (checkUpdate.Count() >=1) 
-            {
-                ModelState.AddModelError("Key","Key already exists");
-                return View();
-            }
+            
             var setting = await _context.Settings.FirstOrDefaultAsync(s => s.Id == Id);
-
             if (setting is null)
             {
                 return NotFound();
             }
+            var checkUpdate = await _context.Settings.Where(s => s.Key == updateSettingViewModel.Key).ToListAsync();
+
+            if (checkUpdate.Count() >= 1 && updateSettingViewModel.Key != setting.Key)
+            {
+                ModelState.AddModelError("Key", "Key already exists");
+                return View();
+            }
+            
            setting =_mapper.Map(updateSettingViewModel, setting);  
            
              _context.Settings.Update(setting);
@@ -68,61 +70,8 @@ namespace EduProject.Areas.Admin.Controllers
 
 
         }
-        public  IActionResult Create()
-        {
-            return View();
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin,Moderator")]
-        public async Task<IActionResult> Create(CreateSettingViewModel createSettingViewModel) 
-        {
-            if(!ModelState.IsValid)
-            {
-                return View();
-            }
-            var checkUpdate = await _context.Settings.Where(s => s.Key == createSettingViewModel.Key).ToListAsync();
-            if (checkUpdate.Count() >= 1)
-            {
-                ModelState.AddModelError("Key", "Key already exists");
-                return View();
-            }
-
-            var newSetting = _mapper.Map<Setting>(createSettingViewModel);
-
-            await _context.Settings.AddAsync(newSetting);
-            await _context.SaveChangesAsync();
-
-            return RedirectToAction(nameof(Index));
-
-
-        }
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Delete(int Id)
-        {
-            var setting = await _context.Settings.FirstOrDefaultAsync(s=>s.Id == Id);
-            if (setting is null)
-            {
-                return NotFound();
-            }
-            var deleteSettingViewModel = _mapper.Map<DeleteSettingViewModel>(setting);
-
-            return View(deleteSettingViewModel);
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Delete(DeleteSettingViewModel deleteSettingViewModel,int Id)
-        {
-            var setting = await _context.Settings.FirstOrDefaultAsync(s => s.Id == Id);
-            if (setting is null)
-            {
-                return NotFound();
-            }
-            setting.IsDeleted = true;
-
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
+      
+      
+        
     }
 }

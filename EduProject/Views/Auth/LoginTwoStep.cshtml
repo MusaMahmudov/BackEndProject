@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewData["Title"] = "Login Second Step";
+}
+
+@model TwoFactor
+
+<!-- Banner Area Start -->
+@await Component.InvokeAsync("Banner");
+
+<!-- Banner Area End -->
+<!-- Login start -->
+<div class="login-area pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <div class="login">
+                    <div class="login-form-container">
+                        <div class="login-text">
+                            <h2>login</h2>
+                            <span>Enter the code that we sent to your email</span>
+                        </div>
+                        <div class="login-form">
+                            <div class="texr-Danger" asp-validation-summary="ModelOnly">
+                            </div>
+                            <form method="post">
+                               
+                                <input asp-for="TwoFactorCode" placeholder="TwoFactorCode">
+                                <span asp-validation-for="TwoFactorCode"></span>
+
+                                <div class="button-box">
+                                    <input asp-for="RememberMe" id="remember">
+                                    <label for="remember">Remember me</label>
+                                    <button type="submit" class="default-btn">Login</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Login end -->

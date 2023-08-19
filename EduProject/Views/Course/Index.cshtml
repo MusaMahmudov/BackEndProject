@@ -41,7 +41,7 @@
                         </div>
                         <div class="course-content">
                             <h3><a asp-action="Details" asp-controller="course" asp-route-id="@course.Id">@course.Name</a></h3>
-                            <p>@course.Description</p>
+                            @Html.Raw(course.Description)
                             <a class="default-btn" asp-action="Details" asp-controller="course" asp-route-id="@course.Id">read more</a>
                         </div>
                     </div>

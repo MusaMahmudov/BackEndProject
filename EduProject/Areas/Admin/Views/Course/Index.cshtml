@@ -34,7 +34,7 @@
 
                                         <td><img src="~/assets/img/course//@course.Image" /></td>
                                         <td>@course.Name</td>
-                                        <td>@course.Description</td>
+                                        <td>@Html.Raw(course.Description)</td>
 
                                         <td><a class="btn btn-primary" asp-action="Details" asp-route-id="@course.Id">Detail</a></td>
                                         <td><a class="btn btn-warning" asp-action="Update" asp-route-id="@course.Id">Update</a></td>

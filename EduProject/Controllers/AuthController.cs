@@ -4,6 +4,7 @@ using EduProject.ViewModels;
 using EduProject.ViewModels.LoginViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using NuGet.Common;
 using System.Net.Mail;
 
 namespace EduProject.Controllers
@@ -43,6 +44,7 @@ namespace EduProject.Controllers
             {
                 return View();
             }
+            
             var userName = await _userManager.FindByEmailAsync(loginViewModel.MailOrUsername);
             if (userName is null)
             {
@@ -53,6 +55,7 @@ namespace EduProject.Controllers
                     return View();
                 }
             }
+            
             if (!userName.IsActive)
             {
                 ModelState.AddModelError("", "Your account is not active");
@@ -64,6 +67,11 @@ namespace EduProject.Controllers
                 ModelState.AddModelError("", "The number of unsuccessful attempts exceeded the limit, try again after 1 minute");
                 return View();
             }
+            if (signInResult.RequiresTwoFactor)
+            {
+                return RedirectToAction(nameof(LoginTwoStep), new { userName.Email, returnUrl });
+            }
+
             if (!signInResult.Succeeded)
             {
                 ModelState.AddModelError("", "Username/Mail or password is incoreect");
@@ -184,7 +192,47 @@ namespace EduProject.Controllers
 
 
         }
+        public async Task<IActionResult> LoginTwoStep(string Email,string? returnUrl)
+        {
+            var userName = await _userManager.FindByEmailAsync(Email);
+            if(userName is null)
+            {
+                return BadRequest();
+            }
+            var token =await _userManager.GenerateTwoFactorTokenAsync(userName, "Email");
 
+            MailRequest mailRequest = new MailRequest()
+            {
+                ToEmail = Email,
+                Subject = "Two Factor Code",
+                Body = $"<h1>{token}<h1>",
+            };
+          await _mailService.SendEMailAsync(mailRequest);
+
+            return View();
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> LoginTwoStep(TwoFactor twofactor,string? returnUrl)
+        {
+            if(!ModelState.IsValid)
+            {
+             return View();
+            }
+
+            var result =await _signInManager.TwoFactorSignInAsync("Email", twofactor.TwoFactorCode, twofactor.RememberMe, false);
+            if(result.Succeeded)
+            {
+                return Redirect(returnUrl ?? "/Home/Index");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Invalid Login Attempt");
+                return View();
+            }
+
+        }
 
      }
 }

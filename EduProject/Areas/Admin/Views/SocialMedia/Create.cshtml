@@ -32,6 +32,8 @@
                 <div class="form-group">
                     <label for="exampleInputConfirmPassword1">Teacher</label>
                     <select asp-for="TeacherId" asp-items="ViewBag.Teachers" >Select Teacher</select>
+                    <span asp-validation-for="TeacherId" class="text-danger"></span>
+
                 </div>
 
 

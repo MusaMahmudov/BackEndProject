@@ -12,7 +12,7 @@
                         <div class="footer-logo pb-25">
                             <a href="index.html"><img src="~/assets/img/logo/@Model["FooterLogo"]" alt="eduhome"></a>
                         </div>
-                        <p>@Model["FooterDescription"] </p>
+                        <p>@Html.Raw(Model["FooterDescription"]) </p>
                         <div class="footer-social">
                             <ul>
                                 <li><a href="#"><i class="zmdi zmdi-facebook"></i></a></li>
@@ -51,7 +51,7 @@
                     <div class="single-widget">
                         <h3>get in touch</h3>
                         <p>Your address goes here, Street<br>City, Roadno 785 New York</p>
-                        <p>@Model["PhoneNumber"]</p>
+                        @Html.Raw(Model["PhoneNumber"])
                         <p>info@eduhome.com<br>www.eduhome.com</p>
                     </div>
                 </div>

@@ -14,5 +14,6 @@ namespace EduProject.ViewModels.UserViewModel
         public string Password { get; set; }
         [Required, MaxLength(256), DataType(DataType.Password),Compare(nameof(Password))]
         public string confirmPassword { get; set; }
+        public bool TwoFactorEnabled { get; set; }
     }
 }
