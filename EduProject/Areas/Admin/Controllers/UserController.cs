@@ -55,24 +55,26 @@ namespace EduProject.Areas.Admin.Controllers
             if (User is null)
                 return NotFound();
             
-            var UserRole = await _context.UserRoles.AsNoTracking().FirstOrDefaultAsync(ur=>ur.UserId == User.Id);
+            List<IdentityUserRole<string>> UserRole =  _context.UserRoles.AsNoTracking().Where(ur=>ur.UserId == User.Id).ToList();
             if (UserRole is null)
                 return NotFound();
-            IdentityRole role = await _context.Roles.AsNoTracking().FirstOrDefaultAsync(r => r.Id == UserRole.RoleId);
+
+            List<IdentityRole> role = new List<IdentityRole>();
+            for(int i = 0; i < UserRole.Count(); i++)
+            {
+                 role.AddRange(_context.Roles.Where(r => r.Id == UserRole[i].RoleId).ToList());
+            }
+
+
+
+
             if (role is null)
                 return NotFound();
 
 
-            DetailUserViewModel detailUserViewModel = new DetailUserViewModel()
-            {
-                UserName = User.UserName,
-                Email = User.Email,
-                Fullname = User.Fullname,
-                Role = role.Name,
-                IsActive = User.IsActive,
-                EmailConfirmed = User.EmailConfirmed,
-
-            };
+            DetailUserViewModel detailUserViewModel = _mapper.Map<DetailUserViewModel>(User);
+            detailUserViewModel.Role = role;
+         
             return View(detailUserViewModel);
 
         }
@@ -96,16 +98,42 @@ namespace EduProject.Areas.Admin.Controllers
         {
             ViewBag.Roles = new SelectList(await _context.Roles.ToListAsync(), "Id", "Name");
 
-            if (changeUserViewModel is null) return BadRequest();
+            var User = await _context.Users.AsNoTracking().FirstOrDefaultAsync(u => u.Id == Id);
+            if(User is null)
+            {
+                return NotFound();
+            }
+            if (changeUserViewModel is null) 
+                return BadRequest();
 
-            var userRole = await _context.UserRoles.FirstOrDefaultAsync(ur => ur.UserId == Id);
-
+            var userRole =  _context.UserRoles.Where(ur => ur.UserId == Id).ToList();
+            
             if (userRole is null)
             {
                 return NotFound();
             }
-            _context.UserRoles.Remove(userRole);
-            await _context.UserRoles.AddAsync(new IdentityUserRole<string> { UserId = userRole.UserId, RoleId = changeUserViewModel.RoleId });
+
+          
+            _context.UserRoles.RemoveRange(userRole);
+
+            List<IdentityUserRole<string>> identityUserRole = new List<IdentityUserRole<string>>();
+
+            for (int i = 0; i < changeUserViewModel.RoleId.Count(); i++)
+            {
+                IdentityUserRole<string> identityUR = new IdentityUserRole<string>();
+                identityUR.RoleId = changeUserViewModel.RoleId[i];
+                identityUR.UserId = userRole[0].UserId;
+                identityUserRole.Add(identityUR);
+            }
+
+            await _context.UserRoles.AddRangeAsync(identityUserRole);
+
+
+
+
+
+
+            //await _context.UserRoles.AddAsync(new IdentityUserRole<string> { UserId = userRole.UserId, RoleId = changeUserViewModel.RoleId });
 
             await _context.SaveChangesAsync();
 

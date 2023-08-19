@@ -15,6 +15,10 @@ namespace EduProject.Mappers
                 .ForMember(tvc => tvc.Percent, x => x.MapFrom(t => t.TeacherSkill.Select(tp => tp.Percent)))
                 .ReverseMap();
 			CreateMap<Teacher,AdminTeacherViewModel>().ReverseMap();
+            CreateMap<Teacher, AdminDetailTeacherViewModel>().ForMember(dt=>dt.Percent,x=>x.MapFrom(t=>t.TeacherSkill.Select(t=>t.Percent)))
+				.ForMember(dt=>dt.SkillName,x=>x.MapFrom(t=>t.TeacherSkill.Select(t=>t.Skill.Name)))
+				.ReverseMap();
+
             CreateMap<CreateTeacherViewModel, Teacher>().ReverseMap();
 
 

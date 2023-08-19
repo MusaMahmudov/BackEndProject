@@ -117,13 +117,21 @@ namespace EduProject.Areas.Admin.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Details(int Id)
         {
-            var Course = await _context.Courses.Include(c => c.courseCategories).ThenInclude(c => c.Category).AsNoTracking().FirstOrDefaultAsync(c => c.Id == Id);
-            if (Course is null)
+            var teacher = await _context.Teachers.Include(c => c.TeacherSkill).ThenInclude(c => c.Skill).Include(t=>t.socialMedia).AsNoTracking().FirstOrDefaultAsync(c => c.Id == Id);
+            if (teacher is null)
             {
                 return BadRequest();
             }
-            var detailCourseViewModel = _mapper.Map<DetailCourseViewModel>(Course);
-            return View(detailCourseViewModel);
+            var teacherSkills =await _context.TeacherSkill.Where(ts=>ts.TeacherId == Id).ToListAsync();
+
+
+
+            var detailTeacherViewModel = _mapper.Map<AdminDetailTeacherViewModel>(teacher);
+            for (int i = 0; i < teacherSkills.Count(); i++)
+            {
+                detailTeacherViewModel.Percent[i] = teacherSkills[i].Percent;
+            }
+            return View(detailTeacherViewModel);
 
         }
         [Authorize(Roles = "Admin")]
