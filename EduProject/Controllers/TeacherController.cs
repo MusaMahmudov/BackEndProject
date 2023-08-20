@@ -18,13 +18,13 @@ namespace EduProject.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var Teachers = _context.Teachers.AsNoTracking().ToList();
+            var Teachers = _context.Teachers.AsNoTracking().Include(t=>t.socialMedia).ToList();
             List<TeacherViewModel> teacherViewModel = _mapper.Map<List<TeacherViewModel>>(Teachers);
             return View(teacherViewModel);
         }
         public async Task<IActionResult> Details(int Id)
         {
-            var teacher =await  _context.Teachers.Include(t=>t.TeacherSkill).ThenInclude(t=>t.Skill).FirstOrDefaultAsync(t=>t.Id == Id);
+            var teacher =await  _context.Teachers.Include(t=>t.TeacherSkill).ThenInclude(t=>t.Skill).Include(t=>t.socialMedia).FirstOrDefaultAsync(t=>t.Id == Id);
             var teacherSkill = _context.TeacherSkill.Where(t=>t.TeacherId == Id).ToList();
             if (teacher is null)
             {

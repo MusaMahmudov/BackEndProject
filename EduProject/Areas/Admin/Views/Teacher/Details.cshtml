@@ -26,7 +26,6 @@
             <h1 style="font-size:15px">UpdatedDate:@Model.UpdatedDate</h1>
             <h1 style="font-size:15px">Degree:@Model.Degree</h1>
             <h1 style="font-size:15px">Experience:@Model.Experience</h1>
-            <h1 style="font-size:15px">Experience:@Model.socialMedia</h1>
 
             <div class="col-md-3 col-sm-4">
                 <div class="teacher-contact">
@@ -36,7 +35,7 @@
                         @foreach (var socialMedia in Model.socialMedia)
                         {
 
-                            <li><a href="@socialMedia.value"><i class="@socialMedia.Icon"></i></a></li>
+                            <li><a href="@socialMedia.value">@Html.Raw(socialMedia.Icon)</a></li>
 
 
                         }
@@ -62,3 +61,5 @@
         </div>
     </div>
 </div>
+
+<script src="https://kit.fontawesome.com/8f2bd1d04c.js" crossorigin="anonymous"></script>

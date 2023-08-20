@@ -1,4 +1,5 @@
 ﻿using EduProject.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace EduProject.Areas.Admin.ViewModels.AdminTeacherViewModel
 {
@@ -6,7 +7,7 @@ namespace EduProject.Areas.Admin.ViewModels.AdminTeacherViewModel
     {
         public string Name { get; set; }
         public string Rank { get; set; }
-        public IFormFile Image { get; set; }
+        public IFormFile? Image { get; set; }
         public string Description { get; set; }
         public string Degree { get; set; }
         public string Experience { get; set; }
@@ -15,7 +16,7 @@ namespace EduProject.Areas.Admin.ViewModels.AdminTeacherViewModel
         public string Mail { get; set; }
         public string PhoneNumber { get; set; }
         public string Skype { get; set; }
-        public List<int>? SkillId { get; set; }
+        public List<int> SkillId { get; set; }
         public List<byte>? Percent { get;set; }
     }
 }

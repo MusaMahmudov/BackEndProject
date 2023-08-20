@@ -1,4 +1,5 @@
-﻿using EduProject.Models.Common;
+﻿using EduProject.Models;
+using EduProject.Models.Common;
 
 namespace EduProject.ViewModels.TeacherViewModels
 {
@@ -16,6 +17,7 @@ namespace EduProject.ViewModels.TeacherViewModels
         public string Mail { get; set; }
         public string PhoneNumber { get; set; }
         public string Skype { get; set; }
+        public List<SocialMedia> socialMedia { get; set; }
         public List<string> SkillNames { get; set; }
         public List<byte> Percent { get; set; }
 

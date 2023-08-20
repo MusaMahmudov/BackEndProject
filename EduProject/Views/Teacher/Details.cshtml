@@ -4,21 +4,7 @@
 }
 @model DetailTeacherViewModel
 <!-- Banner Area Start -->
-<div class="banner-area-wrapper">
-    <div class="banner-area text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="banner-content-wrapper">
-                        <div class="banner-content">
-                            <h2>teachers / details</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+@await Component.InvokeAsync("Banner")
 <!-- Banner Area End -->
 <!-- Teacher Start -->
 <div class="teacher-details-area pt-150 pb-60">
@@ -52,10 +38,12 @@
                     <p><span>make a call : </span>@Model.PhoneNumber</p>
                     <p><span>skype : </span> @Model.Skype</p>
                     <ul>
-                        <li><a href="https://www.facebook.com/devitems/?ref=bookmarks"><i class="zmdi zmdi-facebook"></i></a></li>
-                        <li><a href="https://www.pinterest.com/devitemsllc/"><i class="zmdi zmdi-pinterest"></i></a></li>
-                        <li><a href="#"><i class="zmdi zmdi-vimeo"></i></a></li>
-                        <li><a href="https://twitter.com/devitemsllc"><i class="zmdi zmdi-twitter"></i></a></li>
+                        @foreach(var socialMedia in Model.socialMedia)
+                        {
+                            <li><a href="@socialMedia.value">@Html.Raw(socialMedia.Icon)</a></li>
+
+                        }
+                       
                     </ul>
                 </div>
             </div>
@@ -89,3 +77,4 @@
     </div>
 </div>
 <!-- Teacher End -->
+<script src="https://kit.fontawesome.com/8f2bd1d04c.js" crossorigin="anonymous"></script>

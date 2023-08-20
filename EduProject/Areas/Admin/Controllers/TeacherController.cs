@@ -4,6 +4,7 @@ using EduProject.Areas.Admin.ViewModels.AdminTeacherViewModel;
 using EduProject.Contexts;
 using EduProject.Exceptions;
 using EduProject.Models;
+using EduProject.Models.Common;
 using EduProject.Services.Intefaces;
 using EduProject.Utils.Enums;
 using Microsoft.AspNetCore.Authorization;
@@ -11,6 +12,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace EduProject.Areas.Admin.Controllers
 {
@@ -31,7 +33,7 @@ namespace EduProject.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-            var teachers = _context.Teachers.ToList();
+            var teachers = _context.Teachers.AsNoTracking().OrderByDescending(t => t.CreatedDate).IgnoreQueryFilters().ToList();
 
             var teaherViewModels = _mapper.Map<List<AdminTeacherViewModel>>(teachers);
             return View(teaherViewModels);
@@ -43,22 +45,26 @@ namespace EduProject.Areas.Admin.Controllers
 
             return View();
         }
-        [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Moderator,Admin")]
+        [HttpPost]
         public async Task<IActionResult> Create(CreateTeacherViewModel createTeacherViewModel)
         {
 
+
             ViewBag.Skills = new SelectList(await _context.Skills.ToListAsync(), "Id", "Name");
+            
 
             if (!ModelState.IsValid)
             {
-                return View();
+                return View(nameof(Percent), createTeacherViewModel);
             }
             if (createTeacherViewModel is null)
             {
                 return NotFound();
             }
+           
+
             string FileName = string.Empty;
             var newTeacher = _mapper.Map<Teacher>(createTeacherViewModel);
             newTeacher.IsDeleted = false;
@@ -72,24 +78,23 @@ namespace EduProject.Areas.Admin.Controllers
             catch (FileTypeException ex)
             {
                 ModelState.AddModelError("Image", ex.Message);
-                return View();
+                return View(nameof(Percent), createTeacherViewModel);
 
             }
             catch (FileSizeException ex)
             {
                 ModelState.AddModelError("Image", ex.Message);
-                return View();
+                return View(nameof(Percent),createTeacherViewModel);
 
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError("Image", ex.Message);
-                return View();
+                return View(nameof(Percent), createTeacherViewModel);
             }
 
             newTeacher.Image = FileName;
-            if(createTeacherViewModel.SkillId is not null)
-            {
+           
 				List<TeacherSkill> Skills = new List<TeacherSkill>();
 				for (int i = 0; i < createTeacherViewModel.SkillId.Count(); i++)
 				{
@@ -98,12 +103,14 @@ namespace EduProject.Areas.Admin.Controllers
 
 						TeacherId = newTeacher.Id,
 						SkillId = createTeacherViewModel.SkillId[i],
+                        Percent = createTeacherViewModel.Percent[i],
 					};
 
 					Skills.Add(teacherSkill);
 				}
 				newTeacher.TeacherSkill = Skills;
-			}
+			
+
            
             await _context.Teachers.AddAsync(newTeacher);
 
@@ -114,10 +121,36 @@ namespace EduProject.Areas.Admin.Controllers
 
 
         }
+        [Authorize(Roles = "Admin,Moderator")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Percent(CreateTeacherViewModel createTeacherViewModel)
+        {
+            ViewBag.Skills = new SelectList(await _context.Skills.ToListAsync(), "Id", "Name");
+
+            if (!ModelState.IsValid)
+            {
+                return View(nameof(Create), createTeacherViewModel);
+            }
+            if (createTeacherViewModel is null)
+            {
+                return NotFound();
+            }
+
+            return View(createTeacherViewModel);
+
+
+
+
+        }
+
+
+
+
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Details(int Id)
         {
-            var teacher = await _context.Teachers.Include(c => c.TeacherSkill).ThenInclude(c => c.Skill).Include(t=>t.socialMedia).AsNoTracking().FirstOrDefaultAsync(c => c.Id == Id);
+            var teacher = await _context.Teachers.Include(c => c.TeacherSkill).ThenInclude(c => c.Skill).Include(t=>t.socialMedia).FirstOrDefaultAsync(c => c.Id == Id);
             if (teacher is null)
             {
                 return BadRequest();
@@ -137,17 +170,17 @@ namespace EduProject.Areas.Admin.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int Id)
         {
-            if (_context.Courses.Count() <= 3)
+            if (_context.Teachers.Count() <= 3)
             {
                 return BadRequest();
             }
-            var Course = await _context.Courses.FirstOrDefaultAsync(e => e.Id == Id);
-            if (Course is null)
+            var Teacher = await _context.Teachers.FirstOrDefaultAsync(e => e.Id == Id);
+            if (Teacher is null)
             {
                 return NotFound();
             }
-            var courseViewModel = _mapper.Map<CourseViewModel>(Course);
-            return View(courseViewModel);
+            var teacherViewModel = _mapper.Map<DeleteTeacherViewModel>(Teacher);
+            return View(teacherViewModel);
 
 
         }
@@ -155,21 +188,21 @@ namespace EduProject.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         [ActionName("Delete")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> DeleteEvent(int Id)
+        public async Task<IActionResult> DeleteTeacher(int Id)
         {
-            if (_context.Courses.Count() <= 3)
+            if (_context.Teachers.Count() <= 3)
             {
                 return BadRequest();
             }
-            var Course = await _context.Courses.FirstOrDefaultAsync(e => e.Id == Id);
-            if (Course is null)
+            var Teacher = await _context.Teachers.FirstOrDefaultAsync(e => e.Id == Id);
+            if (Teacher is null)
             {
                 return NotFound();
             }
 
-            string path = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "img", "course", Course.Image);
+            string path = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "img", "course", Teacher.Image);
             _fileService.DeteleFile(path);
-            Course.IsDeleted = true;
+            Teacher.IsDeleted = true;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
 
@@ -178,52 +211,57 @@ namespace EduProject.Areas.Admin.Controllers
         [Authorize(Roles = "Moderator,Admin")]
         public async Task<IActionResult> Update(int Id)
         {
-            ViewBag.Categories = new SelectList(await _context.Category.ToListAsync(), "Id", "Name");
-            var Course = await _context.Courses.FirstOrDefaultAsync(c => c.Id == Id);
+            ViewBag.Skills = new SelectList(await _context.Skills.ToListAsync(), "Id", "Name");
+            var Teacher = await _context.Teachers.Include(t=>t.TeacherSkill).ThenInclude(t=>t.Skill).FirstOrDefaultAsync(c => c.Id == Id);
             if (!ModelState.IsValid)
             {
                 return View();
             }
-            if (Course is null)
+            if (Teacher is null)
             {
                 return NotFound();
             }
-            var updateCourseViewModel = _mapper.Map<UpdateCourseViewModel>(Course);
+            var percent =await _context.TeacherSkill.Where(ts => ts.TeacherId == Id).ToListAsync();
 
+            var updateTeacherViewModel = _mapper.Map<UpdateTeacherViewModel>(Teacher);
+            for(int i = 0; i < percent.Count(); i++)
+            {
+                updateTeacherViewModel.Percent[i] = percent[i].Percent;
+            }
 
-            return View(updateCourseViewModel);
+            return View(updateTeacherViewModel);
 
 
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Moderator,Admin")]
-        public async Task<IActionResult> Update(UpdateCourseViewModel updateCourseViewModel, int Id)
+        public async Task<IActionResult> Update(UpdateTeacherViewModel updateTeacherViewModel, int Id)
         {
-            ViewBag.Categories = new SelectList(await _context.Category.ToListAsync(), "Id", "Name");
+            ViewBag.Skills = new SelectList(await _context.Skills.ToListAsync(), "Id", "Name");
 
-            var Course = await _context.Courses.FirstOrDefaultAsync(c => c.Id == Id);
-            List<CourseCategory> courseCategories = await _context.CourseCategories.ToListAsync();
+            var Teacher = await _context.Teachers.FirstOrDefaultAsync(c => c.Id == Id);
+            List<TeacherSkill> teacherSkills = await _context.TeacherSkill.Where(ts=>ts.TeacherId == Id).ToListAsync();
             if (!ModelState.IsValid)
             {
                 return View();
             }
-            if (Course is null)
+            if (Teacher is null)
             {
                 return NotFound();
             }
-            string FileName = Course.Image;
+            string FileName = Teacher.Image;
 
-            if (updateCourseViewModel.Image is not null)
+            if (updateTeacherViewModel.Image is not null)
             {
                 try
                 {
-                    string path = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "img", "course");
+                    string path = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "img", "teacher");
                     _fileService.DeteleFile(Path.Combine(path, FileName));
 
-                    FileName = await _fileService.CreateFileAsync(updateCourseViewModel.Image, path);
+                    FileName = await _fileService.CreateFileAsync(updateTeacherViewModel.Image, path);
 
-                    Course.Image = FileName;
+                    Teacher.Image = FileName;
                 }
                 catch (FileTypeException ex)
                 {
@@ -236,40 +274,98 @@ namespace EduProject.Areas.Admin.Controllers
                     return View();
                 }
             }
-            if (updateCourseViewModel.CategoryId is not null)
+
+            if (updateTeacherViewModel.SkillId is not null)
             {
 
-                courseCategories.RemoveAll(Course => Course.CourseId == Course.Id);
+                TempData["TeacherId"] = Id;
+                TempData["Image"] = FileName;
+                return RedirectToAction(nameof(UpdatePercent), updateTeacherViewModel);   
 
-
-
-                List<CourseCategory> newCategories = new List<CourseCategory>();
-
-                for (int i = 0; i < updateCourseViewModel.CategoryId.Count(); i++)
-                {
-                    CourseCategory courseCategory = new CourseCategory()
-                    {
-                        CourseId = Course.Id,
-                        CategoryId = updateCourseViewModel.CategoryId[i]
-                    };
-
-
-                    newCategories.Add(courseCategory);
-
-                }
-                Course.courseCategories = newCategories;
+           
             }
+            
+            
+                for (int i = 0; i < teacherSkills.Count(); i++)
+                {
+                    teacherSkills[i].Percent = updateTeacherViewModel.Percent[i];
+                }
+                Teacher.TeacherSkill = teacherSkills;
+                Teacher = _mapper.Map(updateTeacherViewModel, Teacher);
+            
+            
+            Teacher.Image = FileName;
 
 
-            Course = _mapper.Map(updateCourseViewModel, Course);
-            Course.Image = FileName;
 
-
-            _context.Courses.Update(Course);
+            _context.Teachers.Update(Teacher);
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
 
         }
+        
+        public async Task<IActionResult> UpdatePercent(UpdateTeacherViewModel updateTeacherViewModel)
+        {
+            ViewBag.Skills = new SelectList(await _context.Skills.ToListAsync(), "Id", "Name");
+
+            if (!ModelState.IsValid)
+            {
+                return View(nameof(Update), updateTeacherViewModel);
+            }
+            if (updateTeacherViewModel is null)
+            {
+                return NotFound();
+            }
+           
+            return View(updateTeacherViewModel);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UpdateTeacher(UpdateTeacherViewModel updateTeacherViewModel)
+        {
+            ViewBag.Skills = new SelectList(await _context.Skills.ToListAsync(), "Id", "Name");
+
+            if (!ModelState.IsValid)
+            {
+                return View(nameof(UpdatePercent));
+            }
+            if (updateTeacherViewModel is null)
+            {
+                return NotFound();
+            }
+            var Teacher = await _context.Teachers.FirstOrDefaultAsync(t => t.Id == (int)TempData["TeacherId"]);
+            if(Teacher is null)
+            {
+                return NotFound();
+            }
+            var teacherSkills =await _context.TeacherSkill.Where(ts=>ts.TeacherId == (int)TempData["TeacherId"]).ToListAsync();
+            teacherSkills.RemoveAll(teacher => teacher.TeacherId == Teacher.Id);
+
+            List<TeacherSkill> newSkills = new List<TeacherSkill>();
+
+            for (int i = 0; i < updateTeacherViewModel.SkillId.Count(); i++)
+            {
+                TeacherSkill skillTeacher = new TeacherSkill()
+                {
+                    TeacherId = Teacher.Id,
+                    SkillId = updateTeacherViewModel.SkillId[i],
+                    Percent = updateTeacherViewModel.Percent[i]
+                };
+
+
+                newSkills.Add(skillTeacher);
+
+            }
+            Teacher.TeacherSkill = newSkills;
+            Teacher = _mapper.Map(updateTeacherViewModel, Teacher);
+            Teacher.Image = (string)TempData["Image"];
+
+
+            _context.Teachers.Update(Teacher);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }

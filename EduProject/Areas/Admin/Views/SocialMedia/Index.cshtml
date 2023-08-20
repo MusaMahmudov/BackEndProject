@@ -30,7 +30,7 @@
                                 {
                                     <tr>
                                         <td>@socialMedia.IsDeleted</td>
-                                        <td><i class="@socialMedia.Icon"></i></td>
+                                        <td>@Html.Raw(socialMedia.Icon)</td>
                                         <td>@socialMedia.Value</td>
                                         <td><a class="btn btn-primary" asp-action="Details" asp-route-id="@socialMedia.Id">Detail</a></td>
                                         <td><a class="btn btn-warning" asp-action="Update" asp-route-id="@socialMedia.Id">Update</a></td>
@@ -53,3 +53,4 @@
     </div>
 </div>
 <!-- content-wrapper ends -->
+<script src="https://kit.fontawesome.com/8f2bd1d04c.js" crossorigin="anonymous"></script>

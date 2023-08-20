@@ -45,6 +45,10 @@ namespace EduProject.Contexts
             builder.Entity<SocialMedia>().HasQueryFilter(socialMedia => socialMedia.IsDeleted == false);
             builder.Entity<Setting>().HasQueryFilter(setting => setting.IsDeleted == false);
             builder.Entity<TeacherSkill>().HasQueryFilter(ts=>ts.Skill.IsDeleted == false);
+            builder.Entity<TeacherSkill>().HasQueryFilter(ts => ts.Teacher.IsDeleted == false);
+            builder.Entity<CourseCategory>().HasQueryFilter(ts => ts.Category.IsDeleted == false);
+            builder.Entity<CourseCategory>().HasQueryFilter(ts => ts.Course.IsDeleted == false);
+
 
 
 
