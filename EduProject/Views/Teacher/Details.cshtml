@@ -59,7 +59,7 @@
                                 <div class="skill-bar-item">
                                     <span>@Model.SkillNames[i]</span>
                                     <div class="progress">
-                                        <div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width: 85%; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
+                                        <div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width: @Model.Percent[i]%; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
                                             <span class="text-top">@Model.Percent[i] %</span>
                                         </div>
                                     </div>

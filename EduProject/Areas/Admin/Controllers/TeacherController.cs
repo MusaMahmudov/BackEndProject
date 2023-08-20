@@ -77,7 +77,7 @@ namespace EduProject.Areas.Admin.Controllers
             }
             catch (FileTypeException ex)
             {
-                ModelState.AddModelError("Image", ex.Message);
+                ModelState.AddModelError("Image", "Only Images");
                 return View(nameof(Percent), createTeacherViewModel);
 
             }
@@ -261,7 +261,7 @@ namespace EduProject.Areas.Admin.Controllers
                 }
                 catch (FileTypeException ex)
                 {
-                    ModelState.AddModelError("Image", ex.Message);
+                    ModelState.AddModelError("Image", "Only Images");
                     return View();
                 }
                 catch (FileSizeException ex)
@@ -335,6 +335,8 @@ namespace EduProject.Areas.Admin.Controllers
             {
                 return NotFound();
             }
+            string FileName = Teacher.Image;
+
             var teacherSkills =await _context.TeacherSkill.Where(ts=>ts.TeacherId == (int)TempData["TeacherId"]).ToListAsync();
             teacherSkills.RemoveAll(teacher => teacher.TeacherId == Teacher.Id);
 
@@ -355,8 +357,34 @@ namespace EduProject.Areas.Admin.Controllers
             }
             Teacher.TeacherSkill = newSkills;
             Teacher = _mapper.Map(updateTeacherViewModel, Teacher);
-            Teacher.Image = (string)TempData["Image"];
 
+            if (updateTeacherViewModel.Image is not null)
+            {
+                try
+                {
+                    string path = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "img", "teacher");
+                    _fileService.DeteleFile(Path.Combine(path, FileName));
+
+                    FileName = await _fileService.CreateFileAsync(updateTeacherViewModel.Image, path);
+
+                    Teacher.Image = FileName;
+                }
+                catch (FileTypeException ex)
+                {
+                    ModelState.AddModelError("Image", "Only Images");
+                    return View();
+                }
+                catch (FileSizeException ex)
+                {
+                    ModelState.AddModelError("Image", ex.Message);
+                    return View();
+                }
+            }
+            else
+            {
+                Teacher.Image = (string)TempData["Image"];
+
+            }
 
             _context.Teachers.Update(Teacher);
             await _context.SaveChangesAsync();

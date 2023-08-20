@@ -74,7 +74,7 @@ namespace EduProject.Areas.Admin.Controllers
             }
             catch (FileTypeException ex)
             {
-                ModelState.AddModelError("Image", ex.Message);
+                ModelState.AddModelError("Image", "Only Images");
                 return View();
 
             }

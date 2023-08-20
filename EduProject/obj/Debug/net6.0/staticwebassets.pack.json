@@ -685,6 +685,10 @@
       "PackagePath": "staticwebassets\\assets\\img\\event\\4968752c-3c0c-4227-ac2b-dd22d4a13838-event13.jpg"
     },
     {
+      "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\event\\cad4d1fd-524e-4392-b35a-cf2290c7af56-Barbie.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\event\\cad4d1fd-524e-4392-b35a-cf2290c7af56-Barbie.jpg"
+    },
+    {
       "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\event\\cd143fe8-4d4f-470a-a3c2-e46f7b2be2f1-Tosu.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\event\\cd143fe8-4d4f-470a-a3c2-e46f7b2be2f1-Tosu.jpg"
     },
@@ -825,6 +829,10 @@
       "PackagePath": "staticwebassets\\assets\\img\\speaker\\a56a3161-b5f7-4615-bb21-65c0f33fc9f6-Barbie.jpg"
     },
     {
+      "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\speaker\\eba29f88-5d30-4f00-a095-25a0865933cf-Хасбулла.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\speaker\\eba29f88-5d30-4f00-a095-25a0865933cf-Хасбулла.jpg"
+    },
+    {
       "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\speaker\\ee3bec4a-f658-4cd8-b08f-9324890b08b8-Barbie.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\speaker\\ee3bec4a-f658-4cd8-b08f-9324890b08b8-Barbie.jpg"
     },
@@ -835,6 +843,10 @@
     {
       "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\teacher\\0b891dbc-e39a-4a21-a58d-91dea69f365b-teacher1.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\teacher\\0b891dbc-e39a-4a21-a58d-91dea69f365b-teacher1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\teacher\\10414017-24a7-4e19-9768-64ecd7d44460-Barbie.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\teacher\\10414017-24a7-4e19-9768-64ecd7d44460-Barbie.jpg"
     },
     {
       "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\teacher\\1f0ed47a-4c79-43b0-8505-c0982b9a1ae5-teacher3.jpg",
@@ -849,12 +861,24 @@
       "PackagePath": "staticwebassets\\assets\\img\\teacher\\40198d2f-0028-49fd-9bf5-f5be753c4d33-teacher1.jpg"
     },
     {
+      "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\teacher\\4159eb5d-863f-4754-9655-9feb85817653-Barbie.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\teacher\\4159eb5d-863f-4754-9655-9feb85817653-Barbie.jpg"
+    },
+    {
+      "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\teacher\\4d10bb29-5f8b-4889-b6b6-c52ac255022a-Barbie.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\teacher\\4d10bb29-5f8b-4889-b6b6-c52ac255022a-Barbie.jpg"
+    },
+    {
       "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\teacher\\4d924190-a583-4bba-8703-bd55638fdbc6-teacher3.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\teacher\\4d924190-a583-4bba-8703-bd55638fdbc6-teacher3.jpg"
     },
     {
       "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\teacher\\544f8c86-f0b4-4781-b715-c7b9bd94464a-Barbie.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\teacher\\544f8c86-f0b4-4781-b715-c7b9bd94464a-Barbie.jpg"
+    },
+    {
+      "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\teacher\\58198dcf-636c-45ac-97ae-b5926c2f230c-Хасбулла.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\teacher\\58198dcf-636c-45ac-97ae-b5926c2f230c-Хасбулла.jpg"
     },
     {
       "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\teacher\\5b25c150-c482-4ebc-ac00-027072724d36-teacher1.jpg",
@@ -869,12 +893,20 @@
       "PackagePath": "staticwebassets\\assets\\img\\teacher\\a3db7d34-8b4a-405f-8489-7fbf6815f05e-teacher1.jpg"
     },
     {
+      "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\teacher\\a8587fa9-2f40-4cba-8ca1-b564e9e361f7-Barbie.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\teacher\\a8587fa9-2f40-4cba-8ca1-b564e9e361f7-Barbie.jpg"
+    },
+    {
       "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\teacher\\d375dacf-db90-43d5-b0e5-2717240be249-teacher8.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\teacher\\d375dacf-db90-43d5-b0e5-2717240be249-teacher8.jpg"
     },
     {
       "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\teacher\\d79add86-3e53-471e-a8cf-9706b137b293-teacher1.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\teacher\\d79add86-3e53-471e-a8cf-9706b137b293-teacher1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\teacher\\d92cc124-2e72-407b-b16f-6ea6a91454e7-Barbie.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\teacher\\d92cc124-2e72-407b-b16f-6ea6a91454e7-Barbie.jpg"
     },
     {
       "Id": "C:\\Users\\binch\\OneDrive\\Рабочий стол\\BackEndProject\\EduProject\\wwwroot\\assets\\img\\teacher\\d95bf1cf-a075-4367-8fee-889273687455-teacher3.jpg",

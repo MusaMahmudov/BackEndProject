@@ -18,7 +18,7 @@ namespace EduProject.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var Teachers = _context.Teachers.AsNoTracking().Include(t=>t.socialMedia).ToList();
+            var Teachers = _context.Teachers.AsNoTracking().OrderByDescending(t=>t.CreatedDate).Include(t=>t.socialMedia).ToList();
             List<TeacherViewModel> teacherViewModel = _mapper.Map<List<TeacherViewModel>>(Teachers);
             return View(teacherViewModel);
         }
