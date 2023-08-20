@@ -15,7 +15,7 @@
 
        
             <h1>Title:@Model.Value</h1>
-            <h1>SocialMedia:<i class="@Model.Icon"></i></h1>
+            <h1>SocialMedia:@Html.Raw(Model.Icon)
 
 
             <form method="post">
@@ -27,3 +27,4 @@
 </div>
 
 
+<script src="https://kit.fontawesome.com/8f2bd1d04c.js" crossorigin="anonymous"></script>

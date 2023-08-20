@@ -138,10 +138,6 @@ namespace EduProject.Areas.Admin.Controllers
             }
 
             return View(createTeacherViewModel);
-
-
-
-
         }
 
 
@@ -200,7 +196,7 @@ namespace EduProject.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            string path = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "img", "course", Teacher.Image);
+            string path = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "img", "teacher", Teacher.Image);
             _fileService.DeteleFile(path);
             Teacher.IsDeleted = true;
             await _context.SaveChangesAsync();

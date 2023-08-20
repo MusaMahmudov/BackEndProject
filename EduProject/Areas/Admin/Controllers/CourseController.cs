@@ -150,7 +150,7 @@ namespace EduProject.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         [ActionName("Delete")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> DeleteEvent(int Id)
+        public async Task<IActionResult> DeleteCourse(int Id)
         {
             if (_context.Courses.Count() <= 3)
             {

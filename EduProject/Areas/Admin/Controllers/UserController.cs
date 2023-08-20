@@ -51,6 +51,8 @@ namespace EduProject.Areas.Admin.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Detail(string Id)
         {
+            
+
             var User =await _context.Users.AsNoTracking().FirstOrDefaultAsync(u=>u.Id == Id);
             if (User is null)
                 return NotFound();
@@ -113,20 +115,25 @@ namespace EduProject.Areas.Admin.Controllers
                 return NotFound();
             }
 
-          
-            _context.UserRoles.RemoveRange(userRole);
-
-            List<IdentityUserRole<string>> identityUserRole = new List<IdentityUserRole<string>>();
-
-            for (int i = 0; i < changeUserViewModel.RoleId.Count(); i++)
+            if(changeUserViewModel.RoleId is not null)
             {
-                IdentityUserRole<string> identityUR = new IdentityUserRole<string>();
-                identityUR.RoleId = changeUserViewModel.RoleId[i];
-                identityUR.UserId = userRole[0].UserId;
-                identityUserRole.Add(identityUR);
+                _context.UserRoles.RemoveRange(userRole);
+
+                List<IdentityUserRole<string>> identityUserRole = new List<IdentityUserRole<string>>();
+
+                for (int i = 0; i < changeUserViewModel.RoleId.Count(); i++)
+                {
+                    IdentityUserRole<string> identityUR = new IdentityUserRole<string>();
+                    identityUR.RoleId = changeUserViewModel.RoleId[i];
+                    identityUR.UserId = userRole[0].UserId;
+                    identityUserRole.Add(identityUR);
+                }
+
+                await _context.UserRoles.AddRangeAsync(identityUserRole);
+                await _context.SaveChangesAsync();
+
             }
 
-            await _context.UserRoles.AddRangeAsync(identityUserRole);
 
 
 
@@ -135,7 +142,6 @@ namespace EduProject.Areas.Admin.Controllers
 
             //await _context.UserRoles.AddAsync(new IdentityUserRole<string> { UserId = userRole.UserId, RoleId = changeUserViewModel.RoleId });
 
-            await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
         }
@@ -143,11 +149,11 @@ namespace EduProject.Areas.Admin.Controllers
         public async Task<IActionResult> ChangeStatus(string Id)
         {
              
-            var User = await _context.Users.FirstOrDefaultAsync(u => u.Id == Id);
-            if (User is null) 
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == Id);
+            if (user is null || User.Identity.Name == user.UserName || User.Identity.Name== user.NormalizedUserName) 
                 return NotFound();
              
-            StatusUserViewModel statusUserViewModel = _mapper.Map<StatusUserViewModel>(User);
+            StatusUserViewModel statusUserViewModel = _mapper.Map<StatusUserViewModel>(user);
            
 
             return View(statusUserViewModel);
@@ -295,6 +301,14 @@ namespace EduProject.Areas.Admin.Controllers
         {
            
             var User = await _context.Users.FirstOrDefaultAsync(c => c.Id == Id);
+
+            if ((_context.Users.Where(u => u.UserName == updateUserViewModel.UserName).Where(u => u.UserName != User.UserName).Count() == 1) || _context.Users.Where(u => u.Email == updateUserViewModel.Email).Where(u => u.Email != User.Email).Count()== 1)
+            {
+                ModelState.AddModelError("", "userName or Email already exists");
+                return View();
+            }
+
+
             User.NormalizedUserName = updateUserViewModel.UserName.ToUpper();
             User.NormalizedEmail = updateUserViewModel.Email.ToUpper();
 
@@ -313,7 +327,7 @@ namespace EduProject.Areas.Admin.Controllers
 
 
             User = _mapper.Map(updateUserViewModel, User);
-
+              
 
             _context.Users.Update(User);
             await _context.SaveChangesAsync();
